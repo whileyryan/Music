@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :reviews
+  has_many :artist_users
+  has_many :artists_following, through: :artist_users, :source => :artist
+  has_many :artists_reviewed, through: :reviews, :source => :artist
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

@@ -6,6 +6,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
       t.string :name
       t.string :image
+      ## zipcode is based on user profile/fallback is geocode disabled
+      t.string :zipcode
+      t.string :current_location
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

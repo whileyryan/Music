@@ -11,16 +11,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121031604) do
+ActiveRecord::Schema.define(version: 20141128235714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_genres", force: true do |t|
+    t.integer  "artist_id"
+    t.integer  "genre_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "artist_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "artists", force: true do |t|
+    t.string   "mbid"
+    t.string   "name"
+    t.boolean  "review_flag"
+    t.integer  "music_rating"
+    t.integer  "atmosphere_rating"
+    t.integer  "overall_rating"
+    t.integer  "composite_rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id_id"
+    t.integer  "artist_id_id"
+    t.string   "venue"
+    t.string   "content"
+    t.integer  "ticket_price"
+    t.integer  "music_rating"
+    t.integer  "atmosphere_rating"
+    t.integer  "overall_rating"
+    t.integer  "composite_rating"
+    t.string   "event_date"
+    t.integer  "votes"
+    t.boolean  "repeat_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "name"
     t.string   "image"
+    t.string   "zipcode"
+    t.string   "current_location"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
