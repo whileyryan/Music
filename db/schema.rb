@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20141129224243) do
     t.integer  "atmosphere_rating"
     t.integer  "overall_rating"
     t.integer  "composite_rating"
-    t.string   "event_date"
+    t.date     "event_date"
     t.integer  "votes"
     t.boolean  "repeat_experience"
     t.datetime "created_at"

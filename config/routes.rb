@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post '/store_zipcode/:zip' => 'users#store_zipcode'
 
-  get '/banas' => 'search#index'
+  # get '/banas' => 'search#index'
 
   post 'search/show' => 'search#show'
 
@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :artists, only: [:show] do
+      resources :reviews
+    end
 
   # Example resource route with options:
   #   resources :products do

@@ -1,6 +1,6 @@
 <div class = 'artist_search' data = <%=artist.mbid %> >
   <h3><%= artist.name %></h3>
-  <img src = '<%=artist.search_image_url %>'/>
+  <a href="/artists/<%=artist.id%>"><img src = '<%=artist.search_image_url %>'/></a>
   <h3>Reviews: <%= get_review_count(artist) %> </h3>
 
   <h6>Overall Score: <%= artist.overall_rating %> </h6>
