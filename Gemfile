@@ -29,6 +29,12 @@ gem 'omniauth-facebook'
 
 gem 'httparty'
 
+gem 'rockstar'
+
+gem 'lastfm'
+
+gem 'dotenv'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

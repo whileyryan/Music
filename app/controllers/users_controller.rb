@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   
 
   def show
-  	@concerts = Event.all
+  	# @concerts = Event.all
   	# for later
-  	# zipcode = current_user.zipcode
-  	# @concerts = Concert.get_concerts(zipcode)
+  	zipcode = current_user.zipcode
+  	@concerts = Concert.get_concerts(zipcode)
   end
 
   def store_zipcode

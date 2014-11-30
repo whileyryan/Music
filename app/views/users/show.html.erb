@@ -1,9 +1,9 @@
 <h1> <%= current_user.email %></h1>
 
 <p> <% @concerts.each do |concert| %></p>
-  <p><%= concert.artist %></p>
-  <p><%= concert.venue %></p>
-  <p><%= concert.date %></p>
-  <p><a href= "<%= concert.url %>"> Ticket info</a></p>
+  <p><%= concert[:artist] %></p>
+  <p><%= concert[:venue] %></p>
+  <p><%= concert[:date] %></p>
+  <p><a href= "<%= concert[:url] %>"> Ticket info</a></p>
   <hr>
 <% end %>

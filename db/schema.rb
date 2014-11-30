@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141129224243) do
     t.integer  "atmosphere_rating"
     t.integer  "overall_rating"
     t.integer  "composite_rating"
+    t.string   "search_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,8 +59,8 @@ ActiveRecord::Schema.define(version: 20141129224243) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer  "user_id_id"
-    t.integer  "artist_id_id"
+    t.integer  "user_id"
+    t.integer  "artist_id"
     t.string   "venue"
     t.string   "content"
     t.integer  "ticket_price"
@@ -81,8 +82,6 @@ ActiveRecord::Schema.define(version: 20141129224243) do
     t.string   "image"
     t.string   "zipcode"
     t.string   "current_location"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -4,6 +4,7 @@ class CreateArtists < ActiveRecord::Migration
       t.string :mbid, :name
       t.boolean :review_flag
       t.integer :music_rating, :atmosphere_rating, :overall_rating, :composite_rating
+      t.string :search_image_url
       t.timestamps
     end
   end

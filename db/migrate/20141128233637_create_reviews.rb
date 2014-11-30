@@ -1,7 +1,8 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
-      t.references :user_id, :artist_id
+      t.references :user
+      t.references :artist
       t.string :venue, :content
       t.integer :ticket_price
       t.integer :music_rating, :atmosphere_rating, :overall_rating, :composite_rating

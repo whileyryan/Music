@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ../../../vendor/assets/javascripts/bootstrap
+//= require ../../../vendor/assets/javascripts/handlebars-v2.0.0
 //= require_tree .
+
