@@ -27,6 +27,7 @@ class SearchController < ApplicationController
     else
         artists = json['artist']
     end
+
     artists.each do |artist|
       if artist["mbid"] == {}
         puts 'ella sucks'
