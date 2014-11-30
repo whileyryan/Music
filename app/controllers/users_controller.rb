@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   	@user = current_user
   	@user.update_attributes(:zipcode => params[:zip])
   	@user.save
+
   end
 
   def about
@@ -30,5 +31,6 @@ class UsersController < ApplicationController
         format.js { render 'update_about'}
       end
     end
+
   end
 end
