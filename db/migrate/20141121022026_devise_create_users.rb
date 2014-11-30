@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## zipcode is based on user profile/fallback is geocode disabled
       t.string :zipcode
       t.string :current_location
+      t.string :about
      
       ## Recoverable
       t.string   :reset_password_token

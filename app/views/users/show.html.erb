@@ -1,9 +1,34 @@
-<h1> <%= current_user.email %></h1>
-
-<p> <% @concerts.each do |concert| %></p>
-  <p><%= concert[:artist] %></p>
-  <p><%= concert[:venue] %></p>
-  <p><%= concert[:date] %></p>
-  <p><a href= "<%= concert[:url] %>"> Ticket info</a></p>
-  <hr>
-<% end %>
+<div class='row'>
+	<div class="col-md-3">
+		<h4> <%= current_user.name %></h4>
+		 <img src='<%= current_user.image %>'>
+		 <div class='row'>
+		 	<ul class='nav nav-pills' role='tablist'>
+			 	<div class="col-md-1" class='dropdown'>
+			 		<h6>Following</h6>
+			 		<div class='sub' style="visibility:hidden">
+			 			<p>Stuff</p>
+			 		</div>
+			 	</div>
+			</ul>
+		 	<div class="col-md-1 col-md-offset-2">
+		 		<h6>About</h6>
+		 	</div>
+		 	<div class="col-md-1 col-md-offset-2">
+		 		<h6>Edit</h6>
+		 	</div>
+		 </div>
+	</div>
+	<div class='col-md-6'>
+		<h1>River</h1>
+	</div>
+	<div class='col-md-3'>
+		<p> <% @concerts.each do |concert| %></p>
+		  <p><%= concert[:artist] %></p>
+		  <p><%= concert[:venue] %></p>
+		  <p><%= concert[:date] %></p>
+		  <p><a href= "<%= concert[:url] %>"> Ticket info</a></p>
+		  <hr>
+		<% end %>
+	</div>
+</div>
