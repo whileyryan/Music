@@ -2,13 +2,18 @@
   <h3><%= @artist_search.name %></h3>
   <img src = '<%=@artist_search.images['mega'] %>'/>
   <h3>Summary: </h3><br>
-  <%=@artist_search.summary %>
+  <%=@artist_search.summary.html_safe %>
 
   <h3>Content: </h3><br>
-  <%=@artist_search.content %>
+  <%=@artist_search.content.html_safe %>
 
   <h3>Genre: </h3><br>
   <%=@artist_search.tags %>
+
+    <div id="follow-div">
+      <%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post %>
+    </div>
+  <!--  <<button_to type="put" class="btn btn-default">Follow This Artist</button> -->
 
   <% if user_signed_in? %>
     <h3>Write A Review</h3>
