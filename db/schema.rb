@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128235714) do
+ActiveRecord::Schema.define(version: 20141129224243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20141128235714) do
     t.integer  "composite_rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "venue"
+    t.string   "artist"
+    t.string   "date"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: true do |t|
@@ -72,6 +81,8 @@ ActiveRecord::Schema.define(version: 20141128235714) do
     t.string   "image"
     t.string   "zipcode"
     t.string   "current_location"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

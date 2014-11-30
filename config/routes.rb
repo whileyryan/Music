@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'users#show'
 
+  post '/store_zipcode/:zip' => 'users#store_zipcode'
+
   # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # Example of regular route:

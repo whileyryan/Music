@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :artists_following, through: :artist_users, :source => :artist
   has_many :artists_reviewed, through: :reviews, :source => :artist
 
+  # include HTTParty
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -18,6 +20,8 @@ class User < ActiveRecord::Base
       user.image = auth.info.image
     end
   end
+
+
 
 
   def self.new_with_session(params, session)
