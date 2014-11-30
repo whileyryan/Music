@@ -1,9 +1,14 @@
 <div class = 'artist_profile' data = <%=@artist_search.mbid %> >
   <h3><%= @artist_search.name %></h3>
   <img src = '<%=@artist_search.images['mega'] %>'/>
-  <h3>Summary: <%=@artist_search.summary %> </h3>
+  <h3>Summary: </h3><br>
+  <%=@artist_search.summary %>
 
-  <h6>Content: <%=@artist_search.content %> </h6>
+  <h3>Content: </h3><br>
+  <%=@artist_search.content %>
+
+  <h3>Genre: </h3><br>
+  <%=@artist_search.tags %>
 
   <% if user_signed_in? %>
     <h3>Write A Review</h3>
