@@ -2,21 +2,12 @@
 	<div class="col-md-3">
 		<h4> <%= current_user.name %></h4>
 		 <img src='<%= current_user.image %>'>
-		 <div class='row'>
-		 	<ul class='nav nav-pills' role='tablist'>
-			 	<div class="col-md-1" class='dropdown'>
-			 		<h6>Following</h6>
-			 		<div class='sub' style="visibility:hidden">
-			 			<p>Stuff</p>
-			 		</div>
-			 	</div>
-			</ul>
-		 	<div class="col-md-1 col-md-offset-2">
-		 		<h6>About</h6>
-		 	</div>
-		 	<div class="col-md-1 col-md-offset-2">
-		 		<h6>Edit</h6>
-		 	</div>
+		 <div role="tabpanel">
+		 	<ul class="nav nav-tabs" role="tablist">
+		 		<li role="presentation" class="active"><a href="#home"aria-controls="home" role="tab" data-toggle="tab">Following </a></li>
+		 		<li role="presentation"><a href="#profile" aria-constrols="profile" role="tab" data-toggle="tab">Profile</a></li>
+		 		<li role="presentaion"><a href-"#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit</a></li>
+		 	</ul>
 		 </div>
 	</div>
 	<div class='col-md-6'>
