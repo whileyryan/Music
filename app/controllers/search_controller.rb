@@ -26,7 +26,7 @@ class SearchController < ApplicationController
     # Find remaining artists via Last.fm
     Dotenv.load
     lastfm = Lastfm.new(ENV['LASTFM_API_KEY'], ENV['LASTFM_SECRET_KEY']);
-    response = lastfm.artist.search(artist: params[:search_query], limit:10);
+    response = lastfm.artist.search(artist: params[:search_query], limit:15);
     # response = lastfm.artist.getInfo({artist: params[:search_query]}, {api_key: ENV['LASTFM_API_KEY']});
     @results = response['results']['artistmatches']
     @ruby_artists = create_artists(@results)
