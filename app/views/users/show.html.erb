@@ -2,21 +2,34 @@
 	<div class="col-md-3">
 		<h4> <%= current_user.name %></h4>
 		 <img src='<%= current_user.image %>'>
-		 <div class='row'>
-		 	<ul class='nav nav-pills' role='tablist'>
-			 	<div class="col-md-1" class='dropdown'>
-			 		<h6>Following</h6>
-			 		<div class='sub' style="visibility:hidden">
-			 			<p>Stuff</p>
-			 		</div>
-			 	</div>
-			</ul>
-		 	<div class="col-md-1 col-md-offset-2">
-		 		<h6>About</h6>
-		 	</div>
-		 	<div class="col-md-1 col-md-offset-2">
-		 		<h6>Edit</h6>
-		 	</div>
+		 <div role="tabpanel">
+		 	<ul class="nav nav-tabs" role="tablist">
+		 		<li role="presentation" class="active"><a href="#following"aria-controls="following" role="tab" data-toggle="tab">Following </a>
+		 		</li>
+		 		<li role="presentation" id='about_tab'><a href="#about" aria-constrols="about" role="tab" data-toggle="tab">About</a>
+		 		</li>
+		 		<li role="presentation" id='edit_tab'><a href="#edit" aria-constrols="edit" role="tab" data-toggle="tab">Edit</a>
+		 		</li>
+		 	</ul>
+		 	<div class="tab-content">
+			    <div role="tabpanel" class="tab-pane fade in active" id="following">
+		 			<%= render partial:'following' %>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="about">
+			    	<%= render partial:'about' %>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="edit">
+			    	<%= form_for :current_user, url: 'users_about', remote: :true do |f| %>
+						<p>
+							<%= f.text_area :about %>
+						</p>
+						<p>
+    						<%= f.submit %>
+  						</p>
+					<% end %>
+			    </div>
+  			</div>
+
 		 </div>
 	</div>
 	<div class='col-md-6'>

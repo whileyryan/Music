@@ -1,0 +1,8 @@
+$('#about').text("<%= j @about %>");
+$('#about').removeClass("tab-pane fade");
+$('#about').addClass("tab-pane fade active in");
+$('#edit').removeClass("tab-pane fade active in");
+$('#edit').addClass("tab-pane fade");
+$('#about_tab').addClass("active");
+$('#edit_tab').removeClass("active");
+console.log($('about_tab'));
