@@ -1,22 +1,30 @@
 <% @reviews.each do |review| %>
-	<div class='recent_review'>
-		<a href='/artists/<%= review.artist_id %>/reviews/<%= review.id %>'>
-			<%= Artist.find(review.artist_id).name %> at <%= review.venue %>
-			<div class='review_content'>
-				<p><%= review.content %></p>
-			</div>
-			
-			<div class='row'>
-				<div class='col-md-3'>
-					<p>Rating: <%= review.music_rating %></p>
-				</div>
-				<div class='col-md-5'>
-					<p>Concert Date: <%= review.event_date %></p>
-				</div>
-				<div class='col-md-4'>
-					<p>Go again: <%= review.repeat_experience %></p>
-				</div>
-			</div>	
-		</a>
-	</div>
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <%= Artist.find(review.id).name %> at <%= review.venue %></h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row adjust">
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                      Venue: <%= review.venue %> - Rating: <%= review.overall_rating %>
+                                    <div class="mic-info">
+                                      Event Date: <%= review.event_date %>
+                                    </div>
+                                </div>
+                                <div class="comment-text">
+                                    <%= review.content %>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
 <% end %>

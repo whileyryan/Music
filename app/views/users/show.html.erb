@@ -43,11 +43,14 @@
 			<button type="submit" class="btn btn-default btn-sm red" class='red'>Search New Zipcode</button>
 		</form>
 		<p> <% @concerts.each do |concert| %></p>
-		  <p><%= concert[:artist] %></p>
-		  <p><%= concert[:venue] %></p>
-		  <p><%= concert[:date] %></p>
-		  <p><a href= "<%= concert[:url] %>" target="_blank"> Ticket info</a></p>
-		  <hr>
+		  <div class='recent_review'>
+			  <p><%= concert[:artist] %></p>
+			  <div class='review_content'>
+				  <p><%= concert[:venue] %></p>
+				  <p><%= concert[:date] %></p>
+				  <p><a href= "<%= concert[:url] %>" target="_blank"> Ticket info</a></p>
+			  </div>
+		  </div>
 		<% end %>
 	</div>
 </div>

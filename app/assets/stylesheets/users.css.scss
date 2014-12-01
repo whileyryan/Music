@@ -9,6 +9,7 @@
 .recent_review p {
 	margin-bottom:5px;
 	margin-top:5px;
+	color:#ecf0f1;
 }
 
 .recent_review a {
@@ -35,4 +36,9 @@
 
 .red {
 	background-color: #c0392b;
+}
+
+.panel-default > .panel-heading {
+  color: #ecf0f1;
+  background-color: #2c3e50;
 }
