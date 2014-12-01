@@ -38,6 +38,15 @@
 		<h1>River</h1>
 	</div>
 	<div class='col-md-3'>
+	<p>Showing concerts for <%= @zipcode %></p>
+	<%= form_for current_user, url: "/users/#{current_user.id}", method: :get do |f| %>
+		<p>
+			<%= f.text_field :current_location %>
+		</p>
+		<p>
+			<%= f.submit %>
+			</p>
+	<% end %>
 		<p> <% @concerts.each do |concert| %></p>
 		  <p><%= concert[:artist] %></p>
 		  <p><%= concert[:venue] %></p>

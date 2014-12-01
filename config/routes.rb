@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'users#show'
 
+  post '/users/new_zipcode' => 'users#new_zipcode'
+
   post '/store_zipcode/:zip' => 'users#store_zipcode'
 
   post 'search/show' => 'search#show'

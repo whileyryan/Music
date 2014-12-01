@@ -6,18 +6,25 @@ class UsersController < ApplicationController
 
 
   def show
-  	@concerts = Event.all
-  	# for later
-  	# zipcode = current_user.zipcode
-  	# @concerts = Concert.get_concerts(zipcode)
+    @user = current_user
+    url = "/users/#{@user.id}"
+    if !params.include?('user')
+      @zipcode = current_user.zipcode
+      @concerts = Event.all
+    # @concerts = Concert.get_concerts(@zipcode)
+    else
+      @zipcode = params['user']['current_location']
+      @concerts = Event.all
+      # @concerts = Concert.get_concerts(@zipcode)
+    end
+    # for later
   end
 
   def store_zipcode
-  	@@zipcode = params[:zip]
   	@user = current_user
   	@user.update_attributes(:zipcode => params[:zip])
   	@user.save
-
+    render nothing: true
   end
 
   def about
