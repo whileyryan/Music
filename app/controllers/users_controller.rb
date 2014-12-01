@@ -17,6 +17,18 @@ class UsersController < ApplicationController
   	@user = current_user
   	@user.update_attributes(:zipcode => params[:zip])
   	@user.save
-  	p @user
+  end
+
+  def about
+    @user = current_user
+    @about = params['current_user']['about']
+    @user.update_attributes(:about => params['current_user']['about'])
+    url = "/users/#{@user.id}"
+    respond_to do |format|
+      if @user.save
+        # format.html {redirect_to (url)}
+        format.js { render 'update_about'}
+      end
+    end
   end
 end

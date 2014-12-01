@@ -4,10 +4,33 @@
 		 <img src='<%= current_user.image %>'>
 		 <div role="tabpanel">
 		 	<ul class="nav nav-tabs" role="tablist">
-		 		<li role="presentation" class="active"><a href="#home"aria-controls="home" role="tab" data-toggle="tab">Following </a></li>
-		 		<li role="presentation"><a href="#profile" aria-constrols="profile" role="tab" data-toggle="tab">Profile</a></li>
-		 		<li role="presentaion"><a href-"#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit</a></li>
+		 		<li role="presentation" class="active"><a href="#following"aria-controls="following" role="tab" data-toggle="tab">Following </a>
+		 		</li>
+		 		<li role="presentation" id='about_tab'><a href="#about" aria-constrols="about" role="tab" data-toggle="tab">About</a>
+		 		</li>
+		 		<li role="presentation" id='edit_tab'><a href="#edit" aria-constrols="edit" role="tab" data-toggle="tab">Edit</a>
+		 		</li>
 		 	</ul>
+		 	<div class="tab-content">
+			    <div role="tabpanel" class="tab-pane fade in active" id="following">
+		 			<%= render partial:'following' %>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="about">
+			    	<%= render partial:'about' %>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="edit">
+			    	<%= form_for :current_user, url: 'users_about', remote: :true do |f| %>
+						<p>
+							<%= f.text_area :about %>
+						</p>
+						<p>
+    						<%= f.submit %>
+  						</p>
+					<% end %>
+			    </div>
+  			</div>
+
+
 		 </div>
 	</div>
 	<div class='col-md-6'>
