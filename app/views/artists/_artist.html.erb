@@ -1,0 +1,46 @@
+<div class = 'artist_profile row'  data = <%=@artist_search.mbid %> >
+
+
+
+  <div class="col-md-4"><img src = '<%=@artist_search.images['mega'] %>'/>
+      <div id="follow-div">
+        <%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+      </div>
+  </div>
+
+
+
+    <div class ='nonimg col-md-8'>
+
+      <div class = 'title'>
+        <span class='titletext'><%= @artist_search.name %></span>
+      </div>
+
+      <div class ='summary'>
+        <br/><%=@artist_search.summary.html_safe %>
+      </div>
+
+      <div class = 'summary genre'>
+        <span>Genre Tag(s): </span><br>
+        <%= display_genre(@artist_search) %>
+      </div>
+
+      <div class='row'>
+        <div class='stats'>
+          <div class='reviewstats col-md-4 btn-lg'>
+            Review Count: <%=@artist.reviews.count %>
+          </div>
+          <div class='overallrating col-md-4 btn-lg'>
+            <%= display_rating(@artist) %>
+          </div>
+          <div class=' col-md-4 '>
+             <%= button_to 'Create Review', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg createreview'  %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+</div>

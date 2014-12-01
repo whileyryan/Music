@@ -22,8 +22,6 @@ class ArtistsController < ApplicationController
 
         # @artist_search = Rockstar::Artist.new('Ellie Goulding', :include_info => true)
         @artist_search = Rockstar::Artist.new("", :mbid => @mbid, :include_info => true)
-        puts @artist_search.url
-        puts @artist_search.inspect
 
         # Add genre into genre table and artist_genres tables
         @genres = @artist_search.tags
