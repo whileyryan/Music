@@ -29,11 +29,15 @@ class ArtistsController < ApplicationController
             @genres.each do |genre|
                 if Genre.exists?(name: genre.to_s)
                     current_genre = Genre.find_by(name: genre.to_s)
-                    @artist.genres << current_genre
+                    unless @artist.genres.include?(current_genre)
+                        @artist.genres << current_genre
+                    end
                 else
                     new_genre = Genre.new(name: genre.to_s)
                     if new_genre.save
-                        @artist.genres << new_genre
+                        unless @artist.genres.include?(new_genre)
+                            @artist.genres << new_genre
+                        end
                     end
                 end
             end
