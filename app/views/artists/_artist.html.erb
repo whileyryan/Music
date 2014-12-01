@@ -25,20 +25,119 @@
         <%= display_genre(@artist_search) %>
       </div>
 
-      <div class='row'>
+      <div class='row buttonlist'>
         <div class='stats'>
-          <div class='reviewstats col-md-4 btn-lg'>
+          <div class='reviewstats col-sm-4 col-sm-offset-4 col-centered btn-lg'>
             Review Count: <%=@artist.reviews.count %>
-          </div>
-          <div class='overallrating col-md-4 btn-lg'>
-            <%= display_rating(@artist) %>
-          </div>
-          <div class=' col-md-4 '>
-             <%= button_to 'Create Review', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg createreview'  %>
           </div>
         </div>
       </div>
 
+       <div class ='row buttonlist'>
+          <div class='overallrating col-sm-4 col-sm-offset-4 col-centered btn-lg'>
+            <%= display_rating(@artist) %>
+          </div>
+        </div>
+
+        <div class = "row buttonlist">
+          <div class ='col-sm-4 col-sm-offset-4 col-centered'>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg centered createreview" data-toggle="modal" data-target="#myModal">
+        Create Review
+      </button>
+          </div>
+
+          </div>
+
+      </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Create Review</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" role="form" action="/artists/<%=params[:id]%>/reviews" method="post" data-remote = "true">
+                <input type="hidden" value="<%=params[:id]%>" name="artist_id"/>
+                <input type="hidden" value="<%=current_user.id%>" name="user_id"/>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <label>Venue:</label>
+                    <input type="text" class="form-control" name="venue">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <label>Content:</label>
+                    <textarea name="content" style="width: 100%"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <fieldset class="rating">
+                        <legend>Music Rating:</legend>
+                        <input type="radio" id="music_star5" name="music_rating" value="5" /><label for="music_star5" title="Rocks!">5 stars</label>
+                        <input type="radio" id="music_star4" name="music_rating" value="4" /><label for="music_star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="music_star3" name="music_rating" value="3" /><label for="music_star3" title="Meh">3 stars</label>
+                        <input type="radio" id="music_star2" name="music_rating" value="2" /><label for="music_star2" title="Kinda bad">2 stars</label>
+                        <input type="radio" id="music_star1" name="music_rating" value="1" /><label for="music_star1" title="Sucks big time">1 star</label>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <fieldset class="rating">
+                        <legend>Atmosphere:</legend>
+                        <input type="radio" id="atm_star5" name="atmosphere_rating" value="5" /><label for="atm_star5" title="Rocks!">5 stars</label>
+                        <input type="radio" id="atm_star4" name="atmosphere_rating" value="4" /><label for="atm_star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="atm_star3" name="atmosphere_rating" value="3" /><label for="atm_star3" title="Meh">3 stars</label>
+                        <input type="radio" id="atm_star2" name="atmosphere_rating" value="2" /><label for="atm_star2" title="Kinda bad">2 stars</label>
+                        <input type="radio" id="atm_star1" name="atmosphere_rating" value="1" /><label for="atm_star1" title="Sucks big time">1 star</label>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <fieldset class="rating">
+                        <legend>Overall Rating:</legend>
+                        <input type="radio" id="overall_star5" name="overall_rating" value="5" /><label for="overall_star5" title="Rocks!">5 stars</label>
+                        <input type="radio" id="overall_star4" name="overall_rating" value="4" /><label for="overall_star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="overall_star3" name="overall_rating" value="3" /><label for="overall_star3" title="Meh">3 stars</label>
+                        <input type="radio" id="overall_star2" name="overall_rating" value="2" /><label for="overall_star2" title="Kinda bad">2 stars</label>
+                        <input type="radio" id="overall_star1" name="overall_rating" value="1" /><label for="overall_star1" title="Sucks big time">1 star</label>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <label>Event Date:</label>
+                    <input type="date" class="form-control" name="event_date">
+                  </div>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="repeat_experience"> Repeat?
+                  </label>
+                </div>
+                </br>
+                <div class="form-group">
+                  <!-- <div class="col-sm-10">
+                    <button type="submit" class="btn btn-default btn-lg">Create Review</button>
+                  </div> -->
+                </div>
+            <div class="modal-footer">
+              <button type="submit" value="Send" class="btn btn-primary create">Create</button>
+              <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 
