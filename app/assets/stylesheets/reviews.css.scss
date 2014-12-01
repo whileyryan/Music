@@ -1,6 +1,10 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$white: #ecf0f1;
+$grey: #95a5a6;
+$deep: #2c3e50;
+$red: #c0392b;
 
 .rating {
     float:left;
@@ -56,4 +60,41 @@
     position:relative;
     top:2px;
     left:2px;
+}
+
+.review-template{
+    margin:0px auto;
+
+}
+
+.overall{
+    background-color: $deep;
+    color:$white;
+    padding:10px;
+    text-align: center;
+}
+.nonrating{
+    background-color: #FFECDB;
+
+}
+
+/*body { padding-top:30px; }*/
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+.row .adjust {
+    margin-top: 20px;
+}
+
+div.panel-heading{
+    background-color: $deep !important;
+    color: $white !important;
 }
