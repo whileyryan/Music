@@ -1,3 +1,11 @@
+
+$white: #ecf0f1;
+$grey: #95a5a6;
+$deep: #2c3e50;
+$red: #c0392b;
+$lred: #e74c3c;
+$ldeep: #34495e;
+
 .nav-tabs > li.active > a {
   color: #ecf0f1;
   background-color: #2c3e50;
@@ -10,7 +18,7 @@
 
 .nav-tabs > li > a:hover {
   color:#95a5a6 ;
-  background-color:#ecf0f1;
+  background-color:$ldeep;
 }
 
 .btn{
@@ -20,7 +28,7 @@
 
 .btn:hover{
   color:#95a5a6 ;
-  background-color:#ecf0f1;
+  background-color:#ldeep;
 }
 
 .navbar-inverse{
@@ -32,4 +40,40 @@ body{
   background-color:#ecf0f1;
 }
 
+.navbar{
+  background-color: $deep;
+}
+
+.nav > li > a{
+  color: $white;
+}
+
+.nav > li > a:hover{
+  color: $grey;
+}
+
+.btn-sm{
+  background-color: $red;
+}
+
+btn-sm:hover{
+  background-color:$lred;
+}
+
+button.btn.btn-default{
+  background-color:$red;
+}
+
+button.btn.btn-default:hover{
+  background-color: $lred;
+  color:$white;
+}
+
+.navbar-default .navbar-brand {
+  color:$white;
+}
+
+.navbar-default .navbar-brand:hover{
+  color: $grey;
+}
 
