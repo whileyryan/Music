@@ -1,3 +1,3 @@
 <% current_user.artists_following.each do |follow| %>
-	<%= follow.name %>
+	<a href='/artists/<%= follow.id %>'><%= follow.name %></a>
 <% end %>

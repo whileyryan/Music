@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   post 'search/show' => 'search#show'
 
-  post 'users/users_about' => 'users#about'
+  post 'users/about' => 'users#about'
 
   resources :artists, only: [:show] do
     resources :reviews

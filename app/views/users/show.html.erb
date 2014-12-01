@@ -1,3 +1,5 @@
+<div class='space'>
+</div>
 <div class='row'>
 	<div class="col-md-3">
 		<h4> <%= current_user.name %></h4>
@@ -20,14 +22,10 @@
 			    	<%= render partial:'about' %>
 			    </div>
 			    <div role="tabpanel" class="tab-pane fade" id="edit">
-			    	<%= form_for :current_user, url: 'users_about', remote: :true do |f| %>
-						<p>
-							<%= f.text_area :about %>
-						</p>
-						<p>
-    						<%= f.submit %>
-  						</p>
-					<% end %>
+			    	<form class='form-horizontal' role='form' action="/users/about" method='post' data-remote = "true">
+						<input type='text' class='form-control' name='about'>
+						<button type="submit" class="btn btn-default btn-sm">Update About</button>
+					</form>
 			    </div>
   			</div>
 
@@ -35,23 +33,20 @@
 		 </div>
 	</div>
 	<div class='col-md-6'>
-		<h1>River</h1>
+		<h1>Recent Reviews</h1>
+			<%= render partial:'reviews' %>
 	</div>
 	<div class='col-md-3'>
 	<p>Showing concerts for <%= @zipcode %></p>
-	<%= form_for current_user, url: "/users/#{current_user.id}", method: :get do |f| %>
-		<p>
-			<%= f.text_field :current_location %>
-		</p>
-		<p>
-			<%= f.submit %>
-			</p>
-	<% end %>
+		<form class='form-horizontal' role='form' action="/users/<%= current_user.id %>" method='get'>
+			<input type='text' class='form-control' name='current_location'>
+			<button type="submit" class="btn btn-default btn-sm red" class='red'>Search New Zipcode</button>
+		</form>
 		<p> <% @concerts.each do |concert| %></p>
 		  <p><%= concert[:artist] %></p>
 		  <p><%= concert[:venue] %></p>
 		  <p><%= concert[:date] %></p>
-		  <p><a href= "<%= concert[:url] %>"> Ticket info</a></p>
+		  <p><a href= "<%= concert[:url] %>" target="_blank"> Ticket info</a></p>
 		  <hr>
 		<% end %>
 	</div>
