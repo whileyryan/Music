@@ -22,20 +22,14 @@ class ReviewsController < ApplicationController
     @overall_rating = 0
     @composite_rating = 0
 
-    # @reviews.each do |review|
-    #   @music_rating += review.music_rating
-    #   @atmosphere_rating += review.atmosphere_rating
-    #   @overall_rating += review.overall_rating
-    #   @composite_rating += review.composite_rating
-    # end
+    @reviews.each do |review|
+      @music_rating += review.music_rating.to_i
+      @atmosphere_rating += review.atmosphere_rating.to_i
+      @overall_rating += review.overall_rating.to_i
+      @composite_rating += review.composite_rating.to_i
+    end
 
-    puts "**** Artist Ratings *****"
-    puts @music_rating
-    puts @atmosphere_rating
-    puts @overall_rating
-    puts @composite_rating
-
-    # simple average
+    # simple average without weighting
     @avg_music = @music_rating/@reviews.count
     @avg_atmosphere = @atmosphere_rating/@reviews.count
     @avg_overall = @overall_rating/@reviews.count
@@ -47,6 +41,7 @@ class ReviewsController < ApplicationController
     @artist.overall_rating = @avg_overall
     @artist.composite_rating = @avg_composite
     @artist.save
+
   end
 
   private
