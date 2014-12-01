@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require ../../../vendor/assets/javascripts/bootstrap
 //= require ../../../vendor/assets/javascripts/handlebars-v2.0.0
+//= require ../../../vendor/assets/javascripts/bootstrap-rating-input.min
 //= require_tree .
 
