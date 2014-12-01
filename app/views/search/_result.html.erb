@@ -1,4 +1,4 @@
-<div class = 'artist_search' data = <%=artist.mbid %> >
+<!-- <div class = 'artist_search' data = <%=artist.mbid %> >
   <h3><%= artist.name %></h3>
   <a href="/artists/<%=artist.id%>"><img src = '<%=artist.search_image_url %>'/></a>
   <h3>Reviews: <%= get_review_count(artist) %> </h3>
@@ -7,7 +7,56 @@
 
 
 
-</div>
+</div> -->
+
+
+<div class = 'artist_profile row artist_search'  data = <%=artist.mbid %> >
+
+
+
+  <div class="col-md-4">
+    <img src = '<%=artist.search_image_url %>'/>
+      <div id="follow-div">
+        <%= button_to 'Follow', artists_follow_path(id: artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+      </div>
+  </div>
+
+
+
+    <div class ='nonimg col-md-8'>
+
+      <div class = 'title'>
+        <span class='titletext'><%= artist.name %></span>
+      </div>
+
+
+      <div class='row buttonlist'>
+        <div class='stats'>
+          <div class='reviewstats col-sm-4 col-sm-offset-4 col-centered btn-lg'>
+            Reviews: <%= get_review_count(artist) %>
+          </div>
+        </div>
+      </div>
+
+       <div class ='row buttonlist'>
+          <div class='overallrating col-sm-4 col-sm-offset-4 col-centered btn-lg'>
+            Overall Score: <%= artist.overall_rating %>
+          </div>
+        </div>
+
+        <div class = "row buttonlist">
+          <div class ='col-sm-4 col-sm-offset-4 col-centered'>
+      <!-- Button trigger modal -->
+      <a href='/artists/<%= artist.id %>'><button type="button" class="btn btn-primary btn-lg centered createreview">
+       Go to artist
+      </button></a>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
+
 
 
 

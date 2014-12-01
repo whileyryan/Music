@@ -61,7 +61,7 @@
               <h4 class="modal-title" id="myModalLabel">Create Review</h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" role="form" action="/artists/<%=params[:id]%>/reviews" method="post" data-remote = "true">
+              <form id='reviewForm' class="form-horizontal" role="form" action="/artists/<%=params[:id]%>/reviews" method="post" data-remote = "true">
                 <input type="hidden" value="<%=params[:id]%>" name="artist_id"/>
                 <input type="hidden" value="<%=current_user.id%>" name="user_id"/>
                 <div class="form-group">

@@ -1,1 +1,4 @@
 $("<%= escape_javascript(render partial: 'review', locals: {review: @review}) %>").prependTo(".reviews-container");
+$('#myModal').modal('hide');
+$('#reviewForm')[0].reset();
+
