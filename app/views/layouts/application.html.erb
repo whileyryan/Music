@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <html>
 <head>
 
   <title>ShowB4youGO</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -61,6 +60,7 @@
              <%= link_to user_omniauth_authorize_path(:facebook), id: "facebook" do %>
               <i class="fa fa-facebook fa-3x"></i>
             <% end %>
+
           </ul>
       </div>
     </nav>
