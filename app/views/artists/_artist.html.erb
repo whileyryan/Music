@@ -3,7 +3,7 @@
 
 
   <div class="col-md-4"><img src = '<%=@artist_search.images['mega'] %>'/>
-      <div id="follow-div">
+      <div class="follow-div" id="<%=@artist.id%>">
         <% if follow?(@artist) %>
         <%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>
         <% else %>
