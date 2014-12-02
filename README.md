@@ -39,4 +39,3 @@ what you thought, what was the atmosphere like, how was the music. Contribute as
 #API Documentation
 * [Jambase] (http://developer.jambase.com/)
 * [Last.fm](http://www.last.fm/api)
-* 
