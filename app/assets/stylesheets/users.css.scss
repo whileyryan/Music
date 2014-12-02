@@ -42,3 +42,61 @@
   color: #ecf0f1;
   background-color: #2c3e50;
 }
+
+.user_profile {
+	padding:10px;		
+}
+
+.user_profile h4 {
+	margin-left: 2%;
+}
+
+.user_image {
+	margin-bottom:20px;
+	margin-left: 8%;
+}
+
+.user_name {
+	width:100%;
+	padding: 0px;
+	border-bottom: 1px solid #2c3e50; 
+	border-top: 1px solid #2c3e50;
+	margin-bottom:10px;
+	padding-left:25%;
+}
+
+#following_tab {
+	margin-left: 2%;
+}
+
+#about_tab {
+	margin-left:2%;
+}
+
+#edit_tab {
+	margin-left: 2%;
+}
+
+#edit_form {
+	margin-top:10px;
+}
+
+#edit_form button {
+	margin-top:10px;
+}
+
+.tab-content {
+	padding:10px;
+	background-color: #fff;
+	border-radius: 2px;
+}
+
+.artist_image {
+	width:40%
+}
+
+.artist_follows_section {
+	border-bottom: 1px solid #2c3e50;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}

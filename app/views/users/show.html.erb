@@ -1,36 +1,37 @@
-<div class='space'>
-</div>
+
 <div class='row'>
 	<div class="col-md-3">
-		<h4> <%= current_user.name %></h4>
-		 <img src='<%= current_user.image %>'>
-		 <div role="tabpanel">
-		 	<ul class="nav nav-tabs" role="tablist">
-		 		<li role="presentation" class="active"><a href="#following"aria-controls="following" role="tab" data-toggle="tab">Following </a>
-		 		</li>
-		 		<li role="presentation" id='about_tab'><a href="#about" aria-constrols="about" role="tab" data-toggle="tab">About</a>
-		 		</li>
-		 		<li role="presentation" id='edit_tab'><a href="#edit" aria-constrols="edit" role="tab" data-toggle="tab">Edit</a>
-		 		</li>
+		<div class='user_profile'>
+			<img src='<%= current_user.image %>' class='user_image'>
+			<div class='user_name'>
+				<h4> <%= current_user.name %></h4>
+			</div>
+			 <div role="tabpanel">
+			 	<ul class="nav nav-tabs" role="tablist">
+			 		<li role="presentation" class="active" id='following_tab'><a href="#following"aria-controls="following" role="tab" data-toggle="tab">Following </a>
+			 		</li><div class='width10'></div>
+			 		<li role="presentation" id='about_tab'><a href="#about" aria-constrols="about" role="tab" data-toggle="tab">About</a>
+			 		</li>
+			 		<li role="presentation" id='edit_tab'><a href="#edit" aria-constrols="edit" role="tab" data-toggle="tab">Edit</a>
+			 		</li>
 
-		 	</ul>
-		 	<div class="tab-content">
-			    <div role="tabpanel" class="tab-pane fade in active" id="following">
-		 			<%= render partial:'following' %>
-			    </div>
-			    <div role="tabpanel" class="tab-pane fade" id="about">
-			    	<%= render partial:'about' %>
-			    </div>
-			    <div role="tabpanel" class="tab-pane fade" id="edit">
-			    	<form class='form-horizontal' role='form' action="/users/about" method='post' data-remote = "true">
-						<input type='text' class='form-control' name='about'>
-						<button type="submit" class="btn btn-default btn-sm">Update About</button>
-					</form>
-			    </div>
-  			</div>
-
-
-		 </div>
+			 	</ul>
+			 	<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane fade in active" id="following">
+			 			<%= render partial:'following' %>
+				    </div>
+				    <div role="tabpanel" class="tab-pane fade" id="about">
+				    	<%= render partial:'about' %>
+				    </div>
+				    <div role="tabpanel" class="tab-pane fade" id="edit">
+				    	<form class='form-horizontal' id='edit_form' role='form' action="/users/about" method='post' data-remote = "true">
+							<textarea class='form-control' name='about'></textarea>
+							<button type="submit" class="btn btn-default btn-sm">Update About</button>
+						</form>
+				    </div>
+	  			</div>
+		  </div>
+		</div>
 	</div>
 	<div class='col-md-6'>
 		<h1>Recent Reviews</h1>
