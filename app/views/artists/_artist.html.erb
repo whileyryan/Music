@@ -45,7 +45,7 @@
           </div>
 
           <div class='reviewstats col-sm-4 col-centered btn-lg'>
-            Review Count: <%=@artist.reviews.count %>
+            <%= display_reviews(@artist) %>
           </div>
 
 
@@ -65,7 +65,8 @@
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               <h4 class="modal-title" id="myModalLabel">Create Review</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body margin-none padding-none">
+              <div class='formContent'>
               <form id='reviewForm' class="form-horizontal" role="form" action="/artists/<%=params[:id]%>/reviews" method="post" data-remote = "true">
                 <input type="hidden" value="<%=params[:id]%>" name="artist_id"/>
                 <input type="hidden" value="<%=current_user.id%>" name="user_id"/>
@@ -134,6 +135,7 @@
                     <button type="submit" class="btn btn-default btn-lg">Create Review</button>
                   </div> -->
                 </div>
+              </div>
             <div class="modal-footer">
               <button type="submit" value="Send" class="btn btn-primary create">Create</button>
               <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
@@ -142,7 +144,8 @@
             </div>
           </div>
         </div>
-      </div>
+
+
 
     </div>
   </div>
