@@ -5,8 +5,13 @@
 
   <div class="col-md-4">
     <img src = '<%=artist.search_image_url %>'/>
-      <div id="follow-div">
+      <div class="follow-div" id="<%=artist.id%>">
+        <% if follow?(artist) %>
+        <%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>
+        <% else %>
         <%= button_to 'Follow', artists_follow_path(id: artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+        <% end %>
+
       </div>
   </div>
 

@@ -2,6 +2,7 @@ require 'lastfm'
 require 'json'
 
 class SearchController < ApplicationController
+
   def index
 
   end
