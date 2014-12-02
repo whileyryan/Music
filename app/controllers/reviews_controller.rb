@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        p "Review created"
         @artist = Artist.find(params[:artist_id])
         # calculate and update artist scoring
         @reviews = @artist.reviews
@@ -46,7 +47,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:artist_id, :user_id, :venue, :content, :music_rating, :atmosphere_rating, :overall_rating, :event_date)
+    params.permit(:artist_id, :user_id, :venue, :content, :music_rating, :atmosphere_rating, :overall_rating, :event_date, :repeat_experience)
   end
 
 end

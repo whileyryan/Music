@@ -4,3 +4,9 @@ $('#reviewForm')[0].reset();
 $('.overallrating').html("<%= j (render partial: 'following', locals: {artist:@artist}) %> ")
 $('.reviewstats').html("<%= j (render partial: 'reviewstats', locals: {reviews:@reviews}) %> ")
 
+$('#reviewForm').live('ajax:beforeSend', function(evt, xhr, settings){
+  // prevent double submit
+  $(':submit', this).click(function() {
+    return false;
+  });
+});
