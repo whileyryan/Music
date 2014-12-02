@@ -39,3 +39,6 @@ what you thought, what was the atmosphere like, how was the music. Contribute as
 #API Documentation
 * [Jambase] (http://developer.jambase.com/)
 * [Last.fm](http://www.last.fm/api)
+
+#Schema 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
