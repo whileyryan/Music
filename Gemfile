@@ -27,6 +27,8 @@ gem 'jquery-turbolinks'
 
 gem 'devise'
 
+gem "font-awesome-rails"
+
 gem 'omniauth-facebook'
 
 gem 'httparty'

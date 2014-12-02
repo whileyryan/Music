@@ -25,13 +25,16 @@
       </div>
       <div class="collapse navbar-collapse" id ="navbar">
         <ul class="nav nav-pills pull-right">
+          <%= link_to new_user_session_path, id: "logo" do %>
+          <i class="fa fa-home fa-3x"></i>
+        <% end %>
           <li> <%= link_to "Log out", destroy_user_session_path,:method=> :delete %></li>
         </ul>
         <form id="artist-search" class="navbar-form navbar-left" role="search" action="/search/show" method="post">
           <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" name="search_query">
+              <input type="text" class="form-control" placeholder="Search For Artist" name="search_query">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="submit btn btn-default">Submit</button>
         </form>
       </div>
     </div>
@@ -52,19 +55,20 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
-          <ul class="nav nav-pills pull-right">
-            <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-            <li> <%= link_to "Log In", new_user_session_path %></li>
-            <li> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-          </ul>
-          <form id="artist-search" class="navbar-form navbar-left" role="search" action="/search/show" method="post">
+          <ul class="nav nav-pills">
+            <form id="artist-search" class="navbar-form pull-right" role="search" action="/search/show" method="post">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search" name="search_query">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
-      </div>
+            <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+            <li> <%= link_to "Log In", new_user_session_path %></li>
+            <li> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+          </ul>
 
+      </div>
+    </nav>
 
   <% end %>
   <div class="container">
