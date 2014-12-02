@@ -4,7 +4,12 @@
 
   <div class="col-md-4"><img src = '<%=@artist_search.images['mega'] %>'/>
       <div id="follow-div">
+        <% if follow?(@artist) %>
+        <%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>
+        <% else %>
         <%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+        <% end %>
+
       </div>
   </div>
 
@@ -26,26 +31,26 @@
       </div>
 
       <div class='row buttonlist'>
-        <div class='stats'>
-          <div class='reviewstats col-sm-4 col-sm-offset-4 col-centered btn-lg'>
-            Review Count: <%=@artist.reviews.count %>
-          </div>
-        </div>
-      </div>
 
-       <div class ='row buttonlist'>
-          <div class='overallrating col-sm-4 col-sm-offset-4 col-centered btn-lg'>
+
+          <div class='overallrating col-sm-4 col-centered btn-lg'>
             <%= display_rating(@artist) %>
           </div>
-        </div>
 
-        <div class = "row buttonlist">
-          <div class ='col-sm-4 col-sm-offset-4 col-centered'>
+          <div class ='col-sm-4 col-centered'>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary btn-lg centered createreview" data-toggle="modal" data-target="#myModal">
         Create Review
       </button>
           </div>
+
+          <div class='reviewstats col-sm-4 col-centered btn-lg'>
+            Review Count: <%=@artist.reviews.count %>
+          </div>
+
+
+
+
 
           </div>
 
@@ -140,6 +145,7 @@
       </div>
 
     </div>
+  </div>
 
 
 </div>

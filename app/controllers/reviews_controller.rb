@@ -4,17 +4,10 @@ class ReviewsController < ApplicationController
 
   def create
 
-    puts params
     @review = Review.new(review_params)
-
-    respond_to do |format|
-      if @review.save
-        format.js {render 'review'}
-      end
-    end
-
-    # calculate and update artist scoring
+    @review.save
     @artist = Artist.find(params[:artist_id])
+    # calculate and update artist scoring
     @reviews = @artist.reviews
     # initialize rating
     @music_rating = 0
@@ -41,6 +34,10 @@ class ReviewsController < ApplicationController
     @artist.overall_rating = @avg_overall
     @artist.composite_rating = @avg_composite
     @artist.save
+
+    respond_to do |format|
+      format.js {render 'review'}
+    end
 
   end
 

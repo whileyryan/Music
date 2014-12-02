@@ -18,10 +18,21 @@ module ArtistsHelper
   end
 
   def display_rating(artist)
+    p artist
     if artist.overall_rating
       return "Overall Rating: #{artist.overall_rating}"
     else
       return "No ratings yet!"
+    end
+  end
+
+  def follow?(artist)
+    if current_user.artists_following.include?(artist)
+      return true
+      # return "<%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>"
+    else
+      return false
+      # return "<%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>"
     end
   end
 
