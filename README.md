@@ -35,3 +35,8 @@ what you thought, what was the atmosphere like, how was the music. Contribute as
 5. git commit -m "meaningful commit message"
 6. git fetch origin
 7. git rebase origin/master
+
+#API Documentation
+* [Jambase] (http://developer.jambase.com/)
+* [Last.fm](http://www.last.fm/api)
+* 
