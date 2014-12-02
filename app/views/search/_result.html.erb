@@ -14,7 +14,7 @@
         <% if follow?(artist) %>
         <%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>
         <% else %>
-        <%= button_to 'Follow', artists_follow_path(id: artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+        <%= button_to 'Follow', artists_follow_path(id: artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow ' %>
         <% end %>
 
       </div>
@@ -27,8 +27,8 @@
 
 
 
-      <div class='row buttonlist width'>
-          <div class ='col-sm-7  col-centered'>
+      <div class='row buttonlist width '>
+          <div class ='col-sm-7  padding-none'>
             <!-- Button trigger modal -->
             <a href='/artists/<%= artist.id %>'><button type="button" class="btn btn-primary btn-lg centered createreview">
              Go to artist
@@ -37,15 +37,15 @@
       </div>
 
       <div class='row buttonlist width'>
-          <div class='reviewstats col-sm-7  col-centered btn-lg'>
-            Reviews: <%= get_review_count(artist) %>
+          <div class='reviewstats col-sm-7   btn-lg'>
+            <%= display_reviews(artist) %>
           </div>
         </div>
 
 
       <div class ='row buttonlist width'>
-        <div class='overallrating col-sm-7 col-centered btn-lg'>
-          Overall Score: <%= artist.overall_rating %>
+        <div class='overallrating col-sm-7 btn-lg'>
+         <%= display_rating(artist) %>
         </div>
       </div>
 

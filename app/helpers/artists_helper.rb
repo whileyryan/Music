@@ -18,11 +18,18 @@ module ArtistsHelper
   end
 
   def display_rating(artist)
-    p artist
-    if artist.overall_rating
+    if artist.overall_rating >= 0
       return "Overall Rating: #{artist.overall_rating}"
     else
       return "No ratings yet!"
+    end
+  end
+
+   def display_reviews(artist)
+    if artist.reviews.count > 0
+      return "Reviews: #{artist.reviews.count}"
+    else
+      return "No reviews yet!"
     end
   end
 
