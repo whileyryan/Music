@@ -79,7 +79,7 @@ Devise.setup do |config|
   # passing skip: :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
-  config.omniauth :facebook, "1405823239640180", "05876d4e812fd9ffa3bf8dea92dc3e44"
+  config.omniauth :facebook, "1405823239640180", "05876d4e812fd9ffa3bf8dea92dc3e44", :image_size => 'large'
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
