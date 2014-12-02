@@ -6,10 +6,10 @@
 * [Ryan Whiley] (https://github.com/whileyryan)
 
 ## Team Agreements
-*Be kind, dependable and honest.
-*It is all about the music. 
-*Enjoy yourself. 
-*Make it look good. 
+* Be kind, dependable and honest.
+* It is all about the music. 
+* Enjoy yourself. 
+* Make it look good. 
 
 ## About ShowB4youGo
 ShowB4youGo is an application meant to fill the void that exists in the music universe. Although,
