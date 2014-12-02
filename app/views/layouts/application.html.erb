@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <title>knowB4youGO</title>
+  <title>ShowB4youGO</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp', 'data-turbolinks-track' => true %>
@@ -10,7 +10,7 @@
 </head>
 <body>
   <% if user_signed_in? %>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <!--Brand and toggle get grouped-->
       <div class="navbar-header">
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">KnowB4youGO</a>
+        <a class="navbar-brand" href="/">ShowB4youGO</a>
       </div>
       <div class="collapse navbar-collapse" id ="navbar">
         <ul class="nav nav-pills pull-right">
@@ -41,7 +41,7 @@
 
   <% else %>
 
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class ="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -50,24 +50,55 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Knowb4YouGO</a>
+          <a class="navbar-brand" href="/">Showb4YouGO</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav nav-pills">
+            <li> <button type="button" class ="btn btn-primary" id ="navbutton" data-toggle="modal" data-target="#myLogin">Login</li>
+            <li><button type="button" id ="navbutton" class="btn btn-primary" data-toggle="modal" data-target="#mySignup">Sign up</button></li>
+             <%= link_to user_omniauth_authorize_path(:facebook), id: "facebook" do %>
+              <i class="fa fa-facebook fa-3x"></i>
+            <% end %>
 
-            <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-            <li> <%= link_to "Log In", new_user_session_path %></li>
-            <li> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
           </ul>
-
       </div>
     </nav>
-
+    <!-- LOGIN  Modal -->
+    <div class="modal fade" id="myLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+              <h3>Hey You! Did you see a show?</h3>
+                <h4>Tell me about it.</h4>
+          </div>
+          <div class="modal-body">
+            <%= render "layouts/login" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Sign UP Modal -->
+<div class="modal fade" id="mySignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+          <h3>Welcome to ShowB4youGO. </h3>
+          <h4>The only site that allows you to access reviews on live shows by musical artists you want to know more about.</h4>
+      </div>
+      <div class="modal-body">
+        <%= render "layouts/signup" %>
+      </div>
+    </div>
+  </div>
+</div>
   <% end %>
 
   <div class="container">
-
     <%= yield %>
   </div>
 </body>
