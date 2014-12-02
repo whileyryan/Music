@@ -41,4 +41,4 @@ what you thought, what was the atmosphere like, how was the music. Contribute as
 * [Last.fm](http://www.last.fm/api)
 
 #Schema 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](http://i.imgur.com/kQPfbvL.png)
