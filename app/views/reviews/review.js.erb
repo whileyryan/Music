@@ -1,4 +1,6 @@
 $("<%= escape_javascript(render partial: 'review', locals: {review: @review}) %>").prependTo(".reviews-container");
 $('#myModal').modal('hide');
 $('#reviewForm')[0].reset();
+$('.overallrating').html("<%= j (render partial: 'following', locals: {artist:@artist}) %> ")
+$('.reviewstats').html("<%= j (render partial: 'reviewstats', locals: {reviews:@reviews}) %> ")
 
