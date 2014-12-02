@@ -1,4 +1,4 @@
-# ShowB4youGO
+# DiscoMuse
 ## Members 
 * [Tom Brightbill] (https://github.com/tombrightbill)
 * [Stan Stetzo](https://github.com/sszeto71)
@@ -11,15 +11,15 @@
 * Enjoy yourself. 
 * Make it look good. 
 
-## About ShowB4youGo
-ShowB4youGo is an application meant to fill the void that exists in the music web-verse. Although,
-there are plenty of websites that stream music and videos as well as an infinite amount of websites which
-review everything from a musician's nail polish color to the use of a particular type of EQing, ShowB4youGo offers insight into
-the experience of live performance as a spectator. It was created with the intention to help the everyman, college student, or 
-mom who has limited free time and funds but wants to have some fun: well-planned fun. Whether you are interested in an 
-obscure band, a pop princess, a r&B mogul or a new EDM dj, ShowB4youGo offers you access to peer reviews on any live
-performance and we will then ask how was it? What was it like? How was the music? Contribute as much or as little as you want
-but come back. 
+## About DiscoMuse
+DiscoMuse is an application meant to fill the void that exists in the music web-verse. It is a musical discovery tool and
+meant to inspire you to explore different genres. Although, there are plenty of websites that stream music and videos as well as
+an infinite amount of websites which review everything from a musician's nail polish color to the use of a particular type of
+EQing, DiscoMuse offers insight in to the experience of live performance as a spectator. It was created with the intention to
+help the everyman, college student, or mom who has limited free time and funds. Whether you are interested in an obscure
+band, a pop princess, a r&B mogul or a new EDM dj, DiscoMuse offers you access to peer reviews on any live performance and we
+will then ask you how was the show? What was it like? How was the music? Contribute as much or as little as you want but come
+back. 
 
 #Technology Stack
 * Rails 
