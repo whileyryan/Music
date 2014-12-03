@@ -75,7 +75,7 @@ class ArtistsController < ApplicationController
         # Add each result to the appropriate list, and then display the lists of
         # matching videos, channels, and playlists.
         search_response.data.items.each do |search_result|
-            p search_result.inspect
+            # p search_result.inspect
           case search_result.id.kind
             when 'youtube#video'
               @videos.push({title: "#{search_result.snippet.title}", video_id: "#{search_result.id.videoId}"})
