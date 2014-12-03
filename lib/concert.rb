@@ -7,12 +7,16 @@ class Concert
         if zipcode == nil
             return 
         end
-		concert_array = []
+        concert_array = []
         Event.delete_all
-		response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=wzw4p7sy6hjvmj7hcuyhhcb4")
-        if response == nil
-            return
+        response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=YKJJF37EKP27YKDVS2TXE6JE")
+        p '='*100
+        p response
+        p '='*100
+        if !response.include?("Events")
+            return nil
         end
+
         response['Events'].each do |concert|
     		venue = concert['Venue']['Name']
     		date = concert['Date']
