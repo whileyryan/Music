@@ -3,6 +3,9 @@ $('#myModal').modal('hide');
 $('#reviewForm')[0].reset();
 $('.overallrating').html("<%= j (render partial: 'following', locals: {artist:@artist}) %> ")
 $('.reviewstats').html("<%= j (render partial: 'reviewstats', locals: {reviews:@reviews}) %> ")
+$('div.overallrating').removeClass("onestars zerostars twostars threestars fourstars fivestars")
+$('div.overallrating').addClass("<%=  star_class(@artist) %> ")
+
 
 $('#reviewForm').live('ajax:beforeSend', function(evt, xhr, settings){
   // prevent double submit
