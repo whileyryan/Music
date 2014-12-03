@@ -1,5 +1,5 @@
 <% if @videos %>
   <% @videos.each do |video| %>
-    <a href="https://www.youtube.com/watch?v=<%= video[:video_id] %>" target="_blank"><%= video[:title] %></a>
+    <a href="https://www.youtube.com/watch?v=<%= video[:video_id] %>" target="_blank" class='youtube' rel='<%= video[:video_id] %>'><%= video[:title] %></a><br/>
   <% end %>
 <% end %>

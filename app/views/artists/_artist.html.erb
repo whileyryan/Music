@@ -25,14 +25,32 @@
         <span class='titletext'><%= @artist_search.name %></span>
       </div>
 
-      <div class ='summary'>
-        <br/><%=@artist_search.summary.html_safe %>
-      </div>
 
-      <div class = 'summary genre'>
+  <ul class = 'nav nav-tabs'>
+    <li role='presentation' class='active' ><a href='#fragment-1' data-toggle='tab'>Artist Info</a></li>
+    <li role='presentation'><a href='#fragment-2' data-toggle='tab'>Live Performance Videos</a></li>
+  </ul>
+
+
+  <div class='tab-content'>
+
+      <div class ='summary tab-pane fade in active' id='fragment-1'>
+        <br/><%=@artist_search.summary.html_safe %><br/><br/>
+      <div class = 'summary'>
         <span>Genre Tag(s): </span><br>
         <%= display_genre(@artist_search) %>
       </div>
+      </div>
+
+      <div class = 'summary tab-pane fade' id='fragment-2'>
+          <%= render 'videos' %>
+      </div>
+
+  </div>
+
+
+
+
 
       <div class='row buttonlist'>
 
@@ -134,7 +152,7 @@
                   </label>
                 </div>
                 </br>
-               
+
               </div>
             <div class="modal-footer">
               <button type="submit" value="Send" class="btn btn-primary create">Create</button>
