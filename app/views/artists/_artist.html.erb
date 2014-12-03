@@ -1,3 +1,7 @@
+
+
+
+
 <div class = 'artist_profile row'  data = <%=@artist_search.mbid %> >
 
 
@@ -33,7 +37,7 @@
       <div class='row buttonlist'>
 
 
-          <div class='overallrating col-sm-4 col-centered btn-lg'>
+          <div class='overallrating col-sm-4 col-centered btn-lg <%=star_class(@artist) %> '>
             <%= display_rating(@artist) %>
           </div>
 
