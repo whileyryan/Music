@@ -1,6 +1,10 @@
-<% current_user.artists_following.each do |follow| %>
-	<div class='artist_follows_section'>
-		<img src='<%= follow.search_image_url %>' class='img-circle img-responsive img-thumbnail artist_image'>
-		<a href='/artists/<%= follow.id %>'><%= follow.name %></a><br>
-	</div>
+<% if current_user.artists_following == nil %>
+	<% current_user.artists_following.each do |follow| %>
+		<div class='artist_follows_section'>
+			<img src='<%= follow.search_image_url %>' class='img-circle img-responsive img-thumbnail artist_image'>
+			<a href='/artists/<%= follow.id %>'><%= follow.name %></a><br>
+		</div>
+	<% end %>
+<% else %>
+	<p>You're not following anyone, so why don't you search for Artists to follow!</p>
 <% end %>
