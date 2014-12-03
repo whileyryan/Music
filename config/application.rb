@@ -17,6 +17,7 @@ Bundler.require(*Rails.groups)
 module DeviseTest
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
+    config.serve_static_assets = true
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
