@@ -91,9 +91,31 @@
 }
 
 .reviews_content {
-	margin-bottom:5px;
+	margin-bottom:50px;
+	color: #2c3e50;
 }
 
 .jambase_concert {
 	border-bottom: 1px solid #2c3e50;
+}
+
+.ajax_concerts{
+	margin-top:20px;
+}
+
+.default_image {
+	width: 85%;
+}
+
+.logout_margin{
+	height: 5px;
+}
+
+.review_image_userpage {
+	width:10%;
+	float:left;
+	margin-right:10%;
+}
+
+.content_float_left {
 }

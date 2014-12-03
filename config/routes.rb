@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/users/original' => 'users#original_concerts'
 
+  get '/users/load_reviews' => 'users#load_reviews'
+
   get 'users/:id' => 'users#show'
 
   post '/users/new_zipcode' => 'users#new_zipcode'
