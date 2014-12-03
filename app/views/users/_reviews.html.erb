@@ -13,17 +13,18 @@
                             <div class='review_spacing'>
                                 <div class="col-xs-10 col-md-11">
                                     <div class='reviews_content'>
-                                        <p><%= review.content %></p>
+                                        <img src='http://i.imgur.com/zOKSFwm.jpg' class='review_image_userpage'>
+                                          <p><%= review.content %></p>
                                     </div>
                                         <div class="mic-info">
-                                          <div class='col-md-2'>
-                                          Rating: <%= review.overall_rating %>
+                                          <div class='col-md-6'>
+                                          Reviewed By: <%= User.find(review.user_id).email %>
                                           </div>
                                           <div class='col-md-4'>
                                           Event Date: <%= review.event_date %>
                                           </div>
-                                          <div class='col-md-6'>
-                                          Reviewed By: <%= User.find(review.user_id).email %>
+                                          <div class='col-md-2'>
+                                          Rating: <%= review.overall_rating %>
                                           </div>
                                         </div>
                                     <div class="comment-text">

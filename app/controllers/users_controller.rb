@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     review = Review.limit(10).offset(10)
     new_view = review.as_json
     new_view.each do |view|
-      review_array << { :all => view, :user_name => User.find(view['user_id']).email, :artist => Artist.find(view['artist_id']) }
+      review_array << { :all => view, :user => User.find(view['user_id']), :artist => Artist.find(view['artist_id']) }
     end
     p review_array
     if request.xhr?
