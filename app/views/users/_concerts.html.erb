@@ -1,5 +1,13 @@
 
 <div class='ajax_concerts'>
+	<% @concerts.each do |concert| %>
+	<div class='jambase_concert'>	
+		<p><%= concert.artist %></p>
+		<p><%= concert.venue %></p>
+		<p><%= concert.date %></p>
+		<p><a href='<%= concert.url %>'>Ticket Info</a></p>
+	</div>
+	<% end %>
 	
 </div>
 <div class='end_concerts'>

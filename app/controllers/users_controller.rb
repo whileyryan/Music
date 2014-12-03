@@ -19,34 +19,49 @@ class UsersController < ApplicationController
   end
 
   def original_concerts
-    concerts_all = Concert.storeConcerts(Event.all)
+    concerts_all = Event.limit(10)
     if request.xhr?
         render json: concerts_all.to_json
     end
   end
 
   def load_concerts
-    
-    i = params['id'].to_i
-    concerts = Event.where(:id => (i+1 .. i+11))   
+    last_artist_id = params['id'].to_i
+    concerts = Event.limit(10).offset(last_artist_id)
     if request.xhr?
         render json: concerts.to_json
     end
   end
+
+  def load_reviews
+    review_array = []
+    review = Review.limit(10).offset(10)
+    new_view = review.as_json
+    new_view.each do |view|
+      p User.find(view['user_id'])
+      review_array << { :artist_name => Artist.find(view['artist_id']).name, :all => view, :user_name => User.find(view['user_id']).email }
+    end
+    if request.xhr?
+      render json: review_array.to_json
+    end
+  end
    
   def show
-    @reviews = Review.all
+    @reviews = Review.limit(10)
     @user = current_user
     url = "/users/#{@user.id}"
     if params.include?('current_location')
       @zipcode = params['current_location']
-      # Event.destroy_all
+      Event.destroy_all
       # @concerts = Concert.storeConcerts(Event.all)
-      # @concerts = Concert.get_concerts(@zipcode)
+      @concerts = Concert.get_concerts(@zipcode).limit(10)
     else
       @zipcode = current_user.zipcode
+      p '='*100
+      p @zipcode
+      p '='*100
       # @concerts = Concert.storeConcerts(Event.all)
-      # @concerts = Concert.get_concerts(@zipcode)
+      @concerts = Concert.get_concerts(@zipcode).limit(10)
     end
     # for later
   end

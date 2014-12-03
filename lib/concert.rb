@@ -6,7 +6,7 @@ class Concert
 	def self.get_concerts(zipcode)
 		concert_array = []
 
-		response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=ykjjf37ekp27ykdvs2txe6je")
+		response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=B3Q6F9ZTGYVMDWJ57M44JFNJ")
         response['Events'].each do |concert|
     		venue = concert['Venue']['Name']
     		date = concert['Date']

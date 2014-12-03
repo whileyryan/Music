@@ -42,6 +42,11 @@ class ReviewsController < ApplicationController
 
   end
 
+  def show
+    artist_url = "/artists/#{params['artist_id']}"
+    redirect_to artist_url
+  end
+
   private
 
   def review_params

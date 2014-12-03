@@ -1,1 +1,5 @@
-<%= current_user.about %>
+<% if current_user.about != nil %>
+	<%= current_user.about %>
+<% else %>
+	<p>Click on the 'Edit' tab to update your About!</p>
+<% end %>

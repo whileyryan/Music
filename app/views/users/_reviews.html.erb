@@ -1,4 +1,5 @@
 <% @reviews.each do |review| %>
+<a href="/artists/<%= Artist.find(review.artist_id).id %>/reviews/<%= review.id %>">
     <div class="row">
         <div class="panel panel-default widget">
             <div class="panel-heading">
@@ -15,8 +16,15 @@
                                         <%= review.content %>
                                     </div>
                                         <div class="mic-info">
-                                          Venue: <%= review.venue %> - Rating: <%= review.overall_rating %>
+                                          <div class='col-md-2'>
+                                          Rating: <%= review.overall_rating %>
+                                          </div>
+                                          <div class='col-md-4'>
                                           Event Date: <%= review.event_date %>
+                                          </div>
+                                          <div class='col-md-6'>
+                                          Reviewed By: <%= User.find(review.user_id).email %>
+                                          </div>
                                         </div>
                                     <div class="comment-text">
                                     </div>
@@ -28,4 +36,7 @@
             </div>
         </div>
 </div>
+</a>
 <% end %>
+<div class='ajax_reviews'>
+</div>
