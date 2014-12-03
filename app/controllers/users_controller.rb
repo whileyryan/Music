@@ -38,13 +38,13 @@ class UsersController < ApplicationController
     @reviews = Review.all
     @user = current_user
     url = "/users/#{@user.id}"
-    if !params.include?('current_location')
-      @zipcode = current_user.zipcode
+    if params.include?('current_location')
+      @zipcode = params['current_location']
+      # Event.destroy_all
       # @concerts = Concert.storeConcerts(Event.all)
       # @concerts = Concert.get_concerts(@zipcode)
     else
-      @zipcode = params['current_location']
-      # Event.destroy_all
+      @zipcode = current_user.zipcode
       # @concerts = Concert.storeConcerts(Event.all)
       # @concerts = Concert.get_concerts(@zipcode)
     end
