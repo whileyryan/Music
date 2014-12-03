@@ -29,15 +29,9 @@ class UsersController < ApplicationController
     
     i = params['id'].to_i
     concerts = Event.where(:id => (i+1 .. i+11))   
-    p '='*100
-    p concerts
-    p '='*100
     if request.xhr?
         render json: concerts.to_json
     end
-    # respond_to do |format|
-    #   format.json { @concerts.to_json }
-    # end
   end
    
   def show
@@ -47,9 +41,10 @@ class UsersController < ApplicationController
     if !params.include?('current_location')
       @zipcode = current_user.zipcode
       # @concerts = Concert.storeConcerts(Event.all)
-    # @concerts = Concert.get_concerts(@zipcode)
+      # @concerts = Concert.get_concerts(@zipcode)
     else
       @zipcode = params['current_location']
+      # Event.destroy_all
       # @concerts = Concert.storeConcerts(Event.all)
       # @concerts = Concert.get_concerts(@zipcode)
     end
