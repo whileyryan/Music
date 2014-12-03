@@ -8,18 +8,19 @@
             <div class="panel-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <div class="row adjust">
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                      Venue: <%= review.venue %> - Rating: <%= review.overall_rating %>
-                                    <div class="mic-info">
-                                      Event Date: <%= review.event_date %>
+                        <div class="row">
+                            <div class='review_spacing'>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class='reviews_content'>
+                                        <%= review.content %>
+                                    </div>
+                                        <div class="mic-info">
+                                          Venue: <%= review.venue %> - Rating: <%= review.overall_rating %>
+                                          Event Date: <%= review.event_date %>
+                                        </div>
+                                    <div class="comment-text">
                                     </div>
                                 </div>
-                                <div class="comment-text">
-                                    <%= review.content %>
-                                </div>
-
                             </div>
                         </div>
                     </li>
