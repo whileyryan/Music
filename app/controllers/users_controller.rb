@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def load_concerts
     last_artist_id = params['id'].to_i
     concerts = Event.limit(10).offset(last_artist_id)
+
     if request.xhr?
         render json: concerts.to_json
     end
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
     review = Review.limit(10).offset(10)
     new_view = review.as_json
     new_view.each do |view|
-      review_array << { :artist_name => Artist.find(view['artist_id']).name, :all => view, :user_name => User.find(view['user_id']).email, :artist => Artist.find(view['artist_id']) }
+      review_array << { :all => view, :user_name => User.find(view['user_id']).email, :artist => Artist.find(view['artist_id']) }
     end
     p review_array
     if request.xhr?
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
     end
   end
    
+
   def show
     @reviews = Review.limit(10)
     @user = current_user
@@ -55,6 +57,9 @@ class UsersController < ApplicationController
       Event.delete_all
       # @concerts = Concert.storeConcerts(Event.all)
       @concerts = Concert.get_concerts(@zipcode).limit(10)
+      Event.destroy_all
+      # @concerts = Concert.storeConcerts(Event.all)
+      @concerts = Concert.get_concerts(@zipcode)
     else
       @zipcode = current_user.zipcode
       if @zipcode == nil
@@ -75,4 +80,3 @@ class UsersController < ApplicationController
   end
 
 end
-   
