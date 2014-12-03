@@ -56,11 +56,11 @@ class UsersController < ApplicationController
       @zipcode = params['current_location']
 
       Event.delete_all
-      # @concerts = Concert.storeConcerts(Event.all)
       @concerts = Concert.get_concerts(@zipcode)
       if @concerts != nil
         @concerts = @concerts.limit(10)
       end
+
     else
       @zipcode = current_user.zipcode
       if @zipcode == nil
