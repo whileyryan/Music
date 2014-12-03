@@ -1,12 +1,18 @@
 
+
 <div class='ajax_concerts'>
-	<% @concerts.each do |concert| %>
-	<div class='jambase_concert'>	
-		<p><%= concert.artist %></p>
-		<p><%= concert.venue %></p>
-		<p><%= concert.date %></p>
-		<p><a href='<%= concert.url %>'>Ticket Info</a></p>
-	</div>
+	<% if @concerts != nil %>
+		
+		<% @concerts.each do |concert| %>
+		<div class='jambase_concert'>	
+			<p><%= concert.artist %></p>
+			<p><%= concert.venue %></p>
+			<p><%= concert.date %></p>
+			<p><a href='<%= concert.url %>'>Ticket Info</a></p>
+		</div>
+		<% end %>
+	<% else %>
+		<p>Search a zipcode to get concerts in your area!</p>
 	<% end %>
 	
 </div>

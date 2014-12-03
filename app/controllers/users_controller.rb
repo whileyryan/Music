@@ -38,9 +38,9 @@ class UsersController < ApplicationController
     review = Review.limit(10).offset(10)
     new_view = review.as_json
     new_view.each do |view|
-      p User.find(view['user_id'])
-      review_array << { :artist_name => Artist.find(view['artist_id']).name, :all => view, :user_name => User.find(view['user_id']).email }
+      review_array << { :artist_name => Artist.find(view['artist_id']).name, :all => view, :user_name => User.find(view['user_id']).email, :artist => Artist.find(view['artist_id']) }
     end
+    p review_array
     if request.xhr?
       render json: review_array.to_json
     end
@@ -52,14 +52,14 @@ class UsersController < ApplicationController
     url = "/users/#{@user.id}"
     if params.include?('current_location')
       @zipcode = params['current_location']
-      Event.destroy_all
+      Event.delete_all
       # @concerts = Concert.storeConcerts(Event.all)
       @concerts = Concert.get_concerts(@zipcode).limit(10)
     else
       @zipcode = current_user.zipcode
-      p '='*100
-      p @zipcode
-      p '='*100
+      if @zipcode == nil
+        return
+      end
       # @concerts = Concert.storeConcerts(Event.all)
       @concerts = Concert.get_concerts(@zipcode).limit(10)
     end

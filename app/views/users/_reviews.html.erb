@@ -1,5 +1,5 @@
 <% @reviews.each do |review| %>
-<a href="/artists/<%= Artist.find(review.artist_id).id %>/reviews/<%= review.id %>">
+<a href="/artists/<%= Artist.find(review.artist_id).id %>">
     <div class="row">
         <div class="panel panel-default widget">
             <div class="panel-heading">
@@ -13,7 +13,7 @@
                             <div class='review_spacing'>
                                 <div class="col-xs-10 col-md-11">
                                     <div class='reviews_content'>
-                                        <%= review.content %>
+                                        <p><%= review.content %></p>
                                     </div>
                                         <div class="mic-info">
                                           <div class='col-md-2'>

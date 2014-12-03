@@ -1,4 +1,4 @@
-<% if current_user.artists_following == nil %>
+<% if current_user.artists_following != nil %>
 	<% current_user.artists_following.each do |follow| %>
 		<div class='artist_follows_section'>
 			<img src='<%= follow.search_image_url %>' class='img-circle img-responsive img-thumbnail artist_image'>
