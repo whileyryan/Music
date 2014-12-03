@@ -1,1 +1,7 @@
-$("#follow-div").html("<%= j("You are following this artist") %>")
+
+
+$(".follow-div#<%= id%> input").val("Following")
+$(".follow-div#<%= id%> input").css('background-color', '#95a5a6')
+$(".follow-div#<%= id%> input").attr('disabled', true)
+
+

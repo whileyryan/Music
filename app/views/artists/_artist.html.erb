@@ -1,10 +1,19 @@
+
+
+
+
 <div class = 'artist_profile row'  data = <%=@artist_search.mbid %> >
 
 
 
   <div class="col-md-4"><img src = '<%=@artist_search.images['mega'] %>'/>
-      <div id="follow-div">
+      <div class="follow-div" id="<%=@artist.id%>">
+        <% if follow?(@artist) %>
+        <%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>
+        <% else %>
         <%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>
+        <% end %>
+
       </div>
   </div>
 
@@ -26,26 +35,26 @@
       </div>
 
       <div class='row buttonlist'>
-        <div class='stats'>
-          <div class='reviewstats col-sm-4 col-sm-offset-4 col-centered btn-lg'>
-            Review Count: <%=@artist.reviews.count %>
-          </div>
-        </div>
-      </div>
 
-       <div class ='row buttonlist'>
-          <div class='overallrating col-sm-4 col-sm-offset-4 col-centered btn-lg'>
+
+          <div class='overallrating col-sm-4 col-centered btn-lg <%=star_class(@artist) %> '>
             <%= display_rating(@artist) %>
           </div>
-        </div>
 
-        <div class = "row buttonlist">
-          <div class ='col-sm-4 col-sm-offset-4 col-centered'>
+          <div class ='col-sm-4 col-centered'>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary btn-lg centered createreview" data-toggle="modal" data-target="#myModal">
         Create Review
       </button>
           </div>
+
+          <div class='reviewstats col-sm-4 col-centered btn-lg'>
+            <%= display_reviews(@artist) %>
+          </div>
+
+
+
+
 
           </div>
 
@@ -60,7 +69,8 @@
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               <h4 class="modal-title" id="myModalLabel">Create Review</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body margin-none padding-none">
+              <div class='formContent'>
               <form id='reviewForm' class="form-horizontal" role="form" action="/artists/<%=params[:id]%>/reviews" method="post" data-remote = "true">
                 <input type="hidden" value="<%=params[:id]%>" name="artist_id"/>
                 <input type="hidden" value="<%=current_user.id%>" name="user_id"/>
@@ -120,7 +130,7 @@
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="repeat_experience"> Repeat?
+                    <input type="checkbox" name="repeat_experience"> Would you see this band live again?
                   </label>
                 </div>
                 </br>
@@ -129,6 +139,7 @@
                     <button type="submit" class="btn btn-default btn-lg">Create Review</button>
                   </div> -->
                 </div>
+              </div>
             <div class="modal-footer">
               <button type="submit" value="Send" class="btn btn-primary create">Create</button>
               <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
@@ -137,9 +148,11 @@
             </div>
           </div>
         </div>
-      </div>
+
+
 
     </div>
+  </div>
 
 
 </div>

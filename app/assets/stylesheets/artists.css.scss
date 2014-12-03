@@ -15,6 +15,7 @@ div.buttonlist{
 
 .artist_profile{
   /*border: 1px solid red;*/
+  margin-bottom:10%;
   .col-md-4{
 
 
@@ -138,6 +139,24 @@ div.buttonlist{
   border:none;
 }
 
+.following{
+  background-color:#95a5a6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
 
 }
 
+.btn{
+  border:none;
+}
+
+
+.margin-none{
+  margin:0px;
+}
+
+.formContent{
+  margin:5px;
+}

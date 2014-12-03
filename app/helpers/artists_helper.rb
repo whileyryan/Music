@@ -25,4 +25,44 @@ module ArtistsHelper
     end
   end
 
+   def display_reviews(artist)
+    if artist.reviews.count > 0
+      return "Reviews: #{artist.reviews.count}"
+    else
+      return "No reviews yet!"
+    end
+  end
+
+  def follow?(artist)
+    if current_user.artists_following.include?(artist)
+      return true
+      # return "<%= button_to 'Following', {}, :disabled => true, :class => 'btn btn-default btn-lg following' %>"
+    else
+      return false
+      # return "<%= button_to 'Follow', artists_follow_path(id: @artist.id), remote: true, :method => :post, :class => 'btn btn-default btn-lg follow' %>"
+    end
+  end
+
+
+
+  def star_class(artist)
+    if artist.overall_rating
+      case artist.overall_rating
+      when 1
+        "onestar"
+      when 2
+        "twostars"
+      when 3
+        "threestars"
+      when 4
+        "fourstars"
+      when 5
+        "fivestars"
+      else
+        "zerostars"
+      end
+
+    end
+  end
+
 end

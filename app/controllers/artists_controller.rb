@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
         @user.artists_following << @artist
         respond_to do |format|
             # format.html { redirect_to artist_path}
-            format.js { render 'follow'}
+            format.js { render 'follow', locals:{id: @artist.id}}
         end
     end
 

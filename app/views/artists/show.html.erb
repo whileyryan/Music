@@ -2,7 +2,7 @@
   <%= render 'artist' %>
 
 
-  <% if user_signed_in? && @reviews.length > 0%>
+  <% if user_signed_in? %>
   <div class="reviews-container">
       <% @reviews.each do |review| %>
         <%= render partial:'/reviews/review', locals:{review:review} %>

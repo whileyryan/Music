@@ -1,3 +1,72 @@
 // Place all the styles related to the Search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$white: #ecf0f1;
+$grey: #95a5a6;
+$deep: #2c3e50;
+$red: #c0392b;
+
+.error{
+  margin: 0px auto;
+  color: red;
+  text-align: center;
+  font-size:25px;
+}
+
+.title{
+  padding:7px;
+  margin-bottom:10px;
+  background-color: $deep;
+  color: white;
+  text-align:center;
+  font-size:18px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.width{
+  width:100%
+}
+
+.padding{
+  margin-top:10%
+}
+
+.padding-none{
+   padding:0px;
+}
+
+
+
+
+.fivestars::after{
+    content: '★★★★★';
+    color: gold;
+    /*text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);*/
+}
+
+.fourstars::after{
+  content: '★★★★';
+  color: gold;
+}
+
+.threestars::after{
+  content: '★★★';
+  color: gold;
+}
+.twostars::after{
+  content: '★★';
+  color: gold;
+}
+.onestar::after{
+  content: '★';
+  color: gold;
+}
+
+
+

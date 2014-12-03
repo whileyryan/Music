@@ -2,11 +2,19 @@ require 'lastfm'
 require 'json'
 
 class SearchController < ApplicationController
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+
   def index
 
   end
 
   def show
+    if params[:search_query] == ""
+      @error = 'Please enter a valid search'
+      render 'show'
+    else
     # Search artists in application with reviews
     @artists_with_reviews = []
     search_uppercase = params[:search_query].capitalize
@@ -20,19 +28,29 @@ class SearchController < ApplicationController
       end
     end
 
-    puts "**** Artists with reviews"
-    puts @artists_with_reviews.inspect
-
     # Find remaining artists via Last.fm
     Dotenv.load
     lastfm = Lastfm.new(ENV['LASTFM_API_KEY'], ENV['LASTFM_SECRET_KEY']);
     response = lastfm.artist.search(artist: params[:search_query], limit:15);
-    # response = lastfm.artist.getInfo({artist: params[:search_query]}, {api_key: ENV['LASTFM_API_KEY']});
-    @results = response['results']['artistmatches']
-    @ruby_artists = create_artists(@results)
 
-    # combined results removing duplicate artists
-    @prioritize_artists = @artists_with_reviews | @ruby_artists
+    @results = response['results']['artistmatches']
+
+    if @results == {}
+      @error = "No artist found. Please try again."
+      render 'show'
+    else
+      p @results
+      @ruby_artists = create_artists(@results)
+
+      if @ruby_artists.length == 0
+        @error = "No artist found. Please try again."
+      end
+      # combined results removing duplicate artists
+      @prioritize_artists = @artists_with_reviews | @ruby_artists
+    end
+
+  end
+
 
   end
 
@@ -41,7 +59,6 @@ class SearchController < ApplicationController
   def create_artists(json)
     ruby_artists =[]
     artists = []
-    puts "********************"
     if json['artist'].kind_of?(Hash)
         artists << json['artist']
     else

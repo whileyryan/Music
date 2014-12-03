@@ -1,5 +1,12 @@
 
-
-<% @prioritize_artists.each do |artist| %>
-  <%= render partial:'result', locals:{artist:artist} %>
+<% if @error %>
+  <div class="error">
+  <%= @error %>
+  </div>
+<% else %>
+  <% @prioritize_artists.each do |artist| %>
+    <%= render partial:'result', locals:{artist:artist} %>
+  <% end %>
 <% end %>
+
+
