@@ -1,11 +1,11 @@
   
 $(document).ready(function(){
-	initialize();
+	runDisShit();
 });
 var map;
 var geocoder;
 
-function initialize() {
+function runDisShit() {
 
   // Try HTML5 geolocation
   if(navigator.geolocation) {
@@ -19,7 +19,7 @@ function initialize() {
 
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      var zipcode = (results[3]['address_components'][0]['long_name']);
+      var zipcode = (results[0]['address_components'][7]['long_name']);
       storeZipCode(zipcode);
     } 
   });

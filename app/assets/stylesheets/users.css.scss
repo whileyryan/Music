@@ -1,29 +1,3 @@
-.recent_review {
-	background-color: #2c3e50;
-	padding:10px;
-	border-radius:3px;
-	margin-bottom:20px;
-}
-
-
-.recent_review p {
-	margin-bottom:5px;
-	margin-top:5px;
-	color:#ecf0f1;
-}
-
-.recent_review a {
-	color:#ecf0f1;
-	text-decoration: none;
-}
-
-.review_content {
-	background-color: #fff;
-	color: #2c3e50;
-	padding:10px;
-	margin-top:5px;
-}
-
 .space {
   height: 50px;
 }
@@ -99,4 +73,27 @@
 	border-bottom: 1px solid #2c3e50;
 	padding-bottom:5px;
 	margin-bottom:5px;
+}
+
+.reviews_river_title {
+	padding-left:6%;
+	border-bottom: 1px solid #2c3e50;
+	margin-bottom: 10px;
+}
+
+.reviews_river_title h1 {
+	margin-bottom: 5px;
+}
+
+.review_spacing {
+	margin-bottom:10px;
+	margin-top:5px;
+}
+
+.reviews_content {
+	margin-bottom:5px;
+}
+
+.jambase_concert {
+	border-bottom: 1px solid #2c3e50;
 }
