@@ -34,8 +34,10 @@
 		</div>
 	</div>
 	<div class='col-md-6'>
-		<h1>Recent Reviews</h1>
-			<%= render partial:'reviews' %>
+		<div class='reviews_river_title'>
+			<h1>Other User's Recent Reviews</h1>
+		</div>
+		<%= render partial:'reviews' %>
 	</div>
 	<div class='col-md-3'>
 	<p>Showing concerts for <%= @zipcode %></p>
@@ -43,15 +45,7 @@
 			<input type='text' class='form-control' name='current_location'>
 			<button type="submit" class="btn btn-default btn-sm red" class='red'>Search New Zipcode</button>
 		</form>
-		<p> <% @concerts.each do |concert| %></p>
-		  <div class='recent_review'>
-			  <p><%= concert[:artist] %></p>
-			  <div class='review_content'>
-				  <p><%= concert[:venue] %></p>
-				  <p><%= concert[:date] %></p>
-				  <p><a href= "<%= concert[:url] %>" target="_blank"> Ticket info</a></p>
-			  </div>
-		  </div>
-		<% end %>
+			
+		<%= render partial: 'concerts' %>
 	</div>
 </div>
