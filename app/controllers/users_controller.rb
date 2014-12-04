@@ -50,6 +50,13 @@ class UsersController < ApplicationController
 
   def show
     @reviews = Review.limit(10)
+    @reviews.each do |view|
+      @user = User.find(view['user_id'])
+      if @user.image == nil
+        @user.update_attributes(image: "http://i.imgur.com/zOKSFwm.jpg")
+        @user.save
+      end
+    end
     @user = current_user
     url = "/users/#{@user.id}"
     if params.include?('current_location')

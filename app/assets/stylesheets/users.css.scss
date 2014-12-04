@@ -1,3 +1,13 @@
+.new_background_image { 
+  background: url(new_bg.jpg) no-repeat bottom center scroll;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar {
+	margin-bottom:0px;
+}
+
 .space {
   height: 50px;
 }
@@ -118,4 +128,28 @@
 	border: 1px solid #ddd;
 }
 
+.background-image{
+	background-image: url('new_bg.jpg');
+	padding-right:20%;
+}
 
+.new_background_image {
+	padding-right:30%;
+}
+
+.discomuse_image {
+	width:28%;
+	margin-left:15%;
+}
+
+.slide_bg_image {
+	width:200px;
+	height:75px;
+	opacity: 0.6;
+}
+
+.float_right {
+	float:right;
+	margin-top:40px;
+	width:25%;
+}
