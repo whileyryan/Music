@@ -50,9 +50,17 @@ class ArtistsController < ApplicationController
         # Set DEVELOPER_KEY to the "API key" value from the "Access" tab of the
         # Google Developers Console <https://cloud.google.com/console>
         # Please ensure that you have enabled the YouTube Data API for your project.
+        # opts = Trollop::options do
+        #   opt :q, 'Search term', :type => String, :default => 'Google'
+        #   opt :maxResults, 'Max results', :type => :int, :default => 10
+        # end
+
         opts = Trollop::options do
-          opt :q, 'Search term', :type => String, :default => 'Google'
-          opt :maxResults, 'Max results', :type => :int, :default => 10
+            opt :q, 'Search term', :type => String, :default => 'Google'
+            #Trollop requires values for "p" and "e".
+            opt :p, ""
+            opt :e, " "
+            opt :maxResults, 'Max results', :type => :int, :default => 10
         end
 
         client = Google::APIClient.new(:key => ENV['YOUTUBE_DEVELOPER_KEY'],
@@ -75,7 +83,7 @@ class ArtistsController < ApplicationController
         # Add each result to the appropriate list, and then display the lists of
         # matching videos, channels, and playlists.
         search_response.data.items.each do |search_result|
-            p search_result.inspect
+            # p search_result.inspect
           case search_result.id.kind
             when 'youtube#video'
               @videos.push({title: "#{search_result.snippet.title}", video_id: "#{search_result.id.videoId}"})
