@@ -60,7 +60,7 @@ class ArtistsController < ApplicationController
             #Trollop requires values for "p" and "e".
             opt :p, ""
             opt :e, " "
-            opt :max_results, 'Max results', :type => :int, :default => 10
+            opt :maxResults, 'Max results', :type => :int, :default => 10
         end
 
         client = Google::APIClient.new(:key => ENV['YOUTUBE_DEVELOPER_KEY'],
