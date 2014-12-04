@@ -1,4 +1,4 @@
-.new_background_image { 
+.new_background_image {
   background-size: cover;
   height: 100vh;
 }
@@ -103,6 +103,13 @@
 	margin-top:5px;
 }
 
+.splashText{
+	position:absolute;
+	right: 10%;
+	top:15%;
+	margin-top: 0px;
+}
+
 .reviews_content {
 	margin-bottom:50px;
 	color: #2c3e50;
@@ -157,3 +164,4 @@
 	margin-top:40px;
 	width:25%;
 }
+

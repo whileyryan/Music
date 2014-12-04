@@ -23,7 +23,6 @@ $red: #c0392b;
 .rating:not(:checked) > label {
     float:right;
     width:1em;
-    padding:0 .1em;
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
@@ -98,4 +97,8 @@ $red: #c0392b;
 div.panel-heading{
     background-color: $deep !important;
     color: $white !important;
+}
+
+.rating input{
+    padding-left:5px;
 }
