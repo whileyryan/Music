@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
         Rockstar.lastfm = {:api_key => ENV['LASTFM_API_KEY'], :api_secret => ENV['LASTFM_SECRET_KEY']}
 
         @artist = Artist.find(params[:id])
-        @reviews = @artist.reviews
+        @reviews = @artist.reviews.order("created_at DESC")
         @mbid = @artist.mbid
 
         # @artist_search = Rockstar::Artist.new('Ellie Goulding', :include_info => true)
