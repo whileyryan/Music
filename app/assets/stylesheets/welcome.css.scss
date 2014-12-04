@@ -9,13 +9,15 @@ $red: #c0392b;
 
 .splashText{
   font-size: 18px;
-
   background-color:$white;
   color: $deep;
   padding:10px;
   text-align:center;
   font-family: 'Arial';
   border: 10px solid $grey;
+}
 
 
+.pac-container{
+  z-index:1051 !important;
 }
