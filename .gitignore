@@ -8,6 +8,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+.env
 /log/*.log
 /tmp
 .DS_Store

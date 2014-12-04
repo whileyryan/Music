@@ -16,5 +16,8 @@
 //= require ../../../vendor/assets/javascripts/bootstrap
 //= require ../../../vendor/assets/javascripts/handlebars-v2.0.0
 //= require ../../../vendor/assets/javascripts/bootstrap-rating-input.min
+//= require ../../../vendor/assets/javascripts/youtubePopUp.min.js
 //= require_tree .
+
+
 

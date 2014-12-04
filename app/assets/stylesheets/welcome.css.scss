@@ -11,11 +11,15 @@ $red: #c0392b;
   font-size: 18px;
   opacity: 0.8;
   background-color:#fff;
+
   color: $deep;
   padding:10px;
   text-align:center;
   font-family: 'Arial';
-  
+
+}
 
 
+.pac-container{
+  z-index:1051 !important;
 }

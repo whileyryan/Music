@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       render json: review_array.to_json
     end
   end
-   
+
 
   def show
     @reviews = Review.limit(10)
@@ -61,22 +61,24 @@ class UsersController < ApplicationController
     url = "/users/#{@user.id}"
     if params.include?('current_location')
       @zipcode = params['current_location']
+
       Event.delete_all
-      # @concerts = Concert.storeConcerts(Event.all)
       @concerts = Concert.get_concerts(@zipcode)
       if @concerts != nil
         @concerts = @concerts.limit(10)
       end
+
     else
       @zipcode = current_user.zipcode
       if @zipcode == nil
         return
       end
-      # @concerts = Concert.storeConcerts(Event.all)
+
       @concerts = Concert.get_concerts(@zipcode)
       if @concerts != nil
         @concerts = @concerts.limit(10)
       end
+
     end
     # for later
   end
