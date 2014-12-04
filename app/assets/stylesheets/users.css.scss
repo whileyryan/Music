@@ -1,5 +1,5 @@
-.new_background_image { 
-  background: url(new_bg.jpg) no-repeat bottom center scroll;
+.new_background_image {
+  background: url('http://i.imgur.com/3xEU4rc.jpg') no-repeat bottom center scroll;
   background-size: cover;
   height: 100vh;
 }
@@ -28,7 +28,7 @@
 }
 
 .user_profile {
-	padding:10px;		
+	padding:10px;
 }
 
 .user_profile h4 {
@@ -43,7 +43,7 @@
 .user_name {
 	width:100%;
 	padding: 0px;
-	border-bottom: 1px solid #2c3e50; 
+	border-bottom: 1px solid #2c3e50;
 	border-top: 1px solid #2c3e50;
 	margin-bottom:10px;
 }
