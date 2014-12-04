@@ -1,7 +1,11 @@
 .new_background_image { 
-  background: url(new_bg.jpg) no-repeat bottom center scroll;
   background-size: cover;
   height: 100vh;
+}
+
+#big-video-wrap{
+	position: fixed;
+	z-index:0;
 }
 
 .navbar {
@@ -138,8 +142,8 @@
 }
 
 .discomuse_image {
-	width:28%;
-	margin-left:15%;
+	width:90%;
+	z-index:999;
 }
 
 .slide_bg_image {

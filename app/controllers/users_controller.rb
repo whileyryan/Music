@@ -35,13 +35,13 @@ class UsersController < ApplicationController
   end
 
   def load_reviews
+    no_more = nil
     review_array = []
-    review = Review.limit(10).offset(10)
+    review = Review.limit(10).offset(10).reverse_order
     new_view = review.as_json
     new_view.each do |view|
       review_array << { :all => view, :user => User.find(view['user_id']), :artist => Artist.find(view['artist_id']) }
     end
-    p review_array
     if request.xhr?
       render json: review_array.to_json
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
 
   def show
-    @reviews = Review.limit(10)
+    @reviews = Review.limit(10).reverse_order
     @reviews.each do |view|
       @user = User.find(view['user_id'])
       if @user.image == nil
@@ -66,6 +66,7 @@ class UsersController < ApplicationController
       @concerts = Concert.get_concerts(@zipcode)
       if @concerts != nil
         @concerts = @concerts.limit(10)
+        p @concerts
       end
 
     else
