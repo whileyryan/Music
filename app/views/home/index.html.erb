@@ -1,4 +1,6 @@
 </div>
+
+
 <style>
 body {
     padding-top:55px;
@@ -8,9 +10,19 @@ body {
     margin-right: 10%;
 }
 </style>
+<script>
+$(document).ready(function(){
+    $(function() {
+    var BV = new $.BigVideo();
+    BV.init();
+    BV.show('http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov', {ambient:true});
+});
+});
+</script>
 <div class='new_background_image'>
-<img src='http://i.imgur.com/oKAxuPb.png' class='discomuse_image'>
-
+<div class='badge_image'>
+    <img src='http://imgur.com/LsY0b5O.png' class='discomuse_image'>
+</div>
 <div class= 'float_right splashText'>
     Welcome to DiscoMuse!<br/><br/>
      DiscoMuse is a music discovery platform that allows you to review artists' live performances. <br/><br/>
@@ -18,7 +30,6 @@ body {
      Help others know the show will be good before they buy their ticket!
 
 </div>
-<div class='container'>
 
 <div class='row'>
 
@@ -67,3 +78,4 @@ body {
 </div>
 </div>
 </div>
+<div class='container'>

@@ -9,12 +9,24 @@ class Concert
         end
         concert_array = []
         Event.delete_all
-        response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=YKJJF37EKP27YKDVS2TXE6JE")
-        p '='*100
-        p response
-        p '='*100
+        response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=295TPD284R2D4PUTN3FSUX79")
         if !response.include?("Events")
-            return nil
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=g8uac2ww2frjb56bhr7bdpn7")
+        end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=B3Q6F9ZTGYVMDWJ57M44JFNJ")
+        end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=wzw4p7sy6hjvmj7hcuyhhcb4")
+        end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=YKJJF37EKP27YKDVS2TXE6JE")
+        end
+        # if !response.include?("Events")
+        #     response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=j8aah668d4ysk39ekw3qtrgy")
+        # end
+        if !response.include?("Events")
+            response = nil
         end
 
         response['Events'].each do |concert|

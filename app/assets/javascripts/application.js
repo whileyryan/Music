@@ -17,6 +17,11 @@
 //= require ../../../vendor/assets/javascripts/handlebars-v2.0.0
 //= require ../../../vendor/assets/javascripts/bootstrap-rating-input.min
 //= require ../../../vendor/assets/javascripts/youtubePopUp.min.js
+//= require jquery-ui-1.8.22.custom.min
+//= require jquery.imagesloaded.min
+//= require video
+//= require bigvideo
+
 //= require_tree .
 
 
