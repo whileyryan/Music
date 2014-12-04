@@ -47,7 +47,7 @@ function windowScroll(){
                 $.each(response, function(key, value){
                     console.log(response);
                    var new_review = "<a href='/artists/"+ value['artist']['id']+"'><div class='row'><div class='panel panel-default widget'><div class='panel-heading'><h3 class='panel-title'>"
-                + value['artist']['artist_name'] + " at " + value['all']['venue'] + "</h3></div><div class='panel-body'>"+
+                + value['artist']['name'] + " at " + value['all']['venue'] + "</h3></div><div class='panel-body'>"+
                 "<ul class='list-group'><li class='list-group-item'><div class='row'><div class='review_spacing'>"
                 +"<div class='col-xs-10 col-md-11'><div class='reviews_content'> <img src="+value['user']['image']+" class='img-circle img-responsive review_image_userpage'><p>"+ value['all']['content']+"</p></div><div class='mic-info'>"+
                 "<div class='col-md-5'>Reviewed By: " + value['user']['name'] + "</div><div class='col-md-5'>Event Date: "+ value['all']['event_date']+"</div><div class='col-md-2'>Rating: "+value['all']['overall_rating']+"</div></div></div></div></div></li></ul></div></div></div></a>"
