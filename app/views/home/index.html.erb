@@ -9,16 +9,18 @@ body {
 .container {
     margin-right: 10%;
 }
+
+video#bgvid {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background: url("http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov") no-repeat;
+    background-size: cover;
+}
 </style>
-<script>
-$(document).ready(function(){
-    $(function() {
-    var BV = new $.BigVideo();
-    BV.init();
-    BV.show('http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov', {ambient:true});
-});
-});
-</script>
+<video autoplay loop id="bgvid" controls muted>
+  <source src="http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov" type="video/mp4">
+</video>
 <div class='new_background_image'>
 <div class='badge_image'>
     <img src='http://imgur.com/LsY0b5O.png' class='discomuse_image'>
