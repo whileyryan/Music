@@ -5,7 +5,7 @@ class Concert
 
 	def self.get_concerts(zipcode)
         if zipcode == nil
-            return 
+            return
         end
         concert_array = []
         Event.delete_all
@@ -27,6 +27,7 @@ class Concert
         # end
         if !response.include?("Events")
             response = nil
+            return response
         end
 
         response['Events'].each do |concert|
