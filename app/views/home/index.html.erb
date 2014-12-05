@@ -9,16 +9,20 @@ body {
 .container {
     margin-right: 10%;
 }
+
+video#bgvid {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background: url("http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov") no-repeat;
+    background-size: cover;
+}
 </style>
-<script>
-$(document).ready(function(){
-    $(function() {
-    var BV = new $.BigVideo();
-    BV.init();
-    BV.show('http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov', {ambient:true});
-});
-});
-</script>
+
+
+<video autoplay loop id="bgvid" controls muted>
+  <source src="http://www.uploadhosting.co/uploads/208.184.96.233/720p.mov" type="video/mp4">
+</video>
 <div class='new_background_image'>
 <div class='badge_image'>
     <img src='http://imgur.com/LsY0b5O.png' class='discomuse_image'>
@@ -79,3 +83,21 @@ $(document).ready(function(){
 </div>
 </div>
 <div class='container'>
+
+- Tech
+- Decided need use lots of APIs in order to get info for artists/shows
+    - Last.fm - used to gather user info. call api when search, store results in 
+        artist db. on artist page, referenced db to display all necessary info
+    - Jambase - used to gather all information for upcoming concerts.  search api using 
+        current address, or could manually enter all results w/in 50 miles.
+    - Devise - used for login and creating accounts through fb oauth.  would gather all
+        user info from fb used for discomuse users.  image, name, email etc.
+    - Google Maps API - used to find users current location, when load users profile it 
+        will display all concert results w/in 50 mile radius. 
+    - YouTube - used to collect live videos of artists on artists page
+
+- MVP
+    - originally were not too sure how difficult project would be and what kind of 
+        obstacles would encounter, so we had a modest mvp.  easily reached this by 
+        monday which allowed us to go onto mvp+ and add more functionality to our
+        app.  youtube, autofill, infinite scroll and splash page.  
