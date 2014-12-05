@@ -5,7 +5,7 @@ class Concert
 
 	def self.get_concerts(zipcode)
         if zipcode == nil
-            return 
+            return
         end
         concert_array = []
         Event.delete_all
@@ -22,11 +22,19 @@ class Concert
         if !response.include?("Events")
             response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=YKJJF37EKP27YKDVS2TXE6JE")
         end
-        # if !response.include?("Events")
-        #     response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=j8aah668d4ysk39ekw3qtrgy")
-        # end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=j8aah668d4ysk39ekw3qtrgy")
+        end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=f4ehntvt8tadz8khkff62jtm")
+        end
+        if !response.include?("Events")
+            response = HTTParty.get("http://api.jambase.com/events?zipCode=#{zipcode}&radius=50&page=0&api_key=afnnwqkx368fyywcadf7hpsk")
+        end
+
         if !response.include?("Events")
             response = nil
+            return response
         end
 
         response['Events'].each do |concert|
